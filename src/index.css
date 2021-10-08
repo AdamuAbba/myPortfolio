@@ -1,13 +1,33 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap");
+
+.cursive {
+  font-family: "Lobster", cursive;
+  font-weight: 700;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.text-has-shadow {
+  text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.75);
+}
+
+.content-border {
+  border: 5px inset #d087a5;
+}
+
+.homeLogo {
+  font-family: "Annie Use Your Telescope", cursive;
+  font-size: 6rem;
+  font-weight: 700;
+  color: #d087a5;
+}
+
+.annie-font {
+  font-family: "Annie Use Your Telescope", cursive;
+}
+
+.item a:hover {
+  color: skyblue;
+}
+.card-transform {
+  transform: rotate(-20deg);
 }
