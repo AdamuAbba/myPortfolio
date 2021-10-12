@@ -1,0 +1,51 @@
+{attributeData &&
+                attributeData.map((eachAttribute, index) => (
+                  <div className="">
+                    <motion.div
+                      initial={{ rotate: eachAttribute.cardAngle }}
+                      whileHover={{
+                        rotate: "0deg",
+                        scale: 1.1,
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 150,
+                        damping: 7,
+                      }}
+                      className="m-5 text-black text-center "
+                      style={{
+                        width: "15rem",
+                      }}
+                    >
+                      <Card className="shadow-lg" style={{ borderRadius: 30 }}>
+                        <Card.Img
+                          variant="top"
+                          className="p-0 m-0"
+                          style={{ height: 150 }}
+                          src={eachAttribute.mainImage.asset.url}
+                        />
+                        <Card.Body>
+                          <Card.Title
+                            className="cursive "
+                            style={{
+                              fontSize: "2.4rem",
+                              color: colors.shyPink,
+                            }}
+                          >
+                            {eachAttribute.title}
+                          </Card.Title>
+                          <Card.Text
+                            style={{
+                              fontSize: "1.5rem",
+                              fontFamily: "Lobster",
+                              fontWeight: "lighter",
+                            }}
+                          >
+                            {eachAttribute.description}
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </motion.div>
+                    <hr style={{ width: "50%", alignSelf: "center" }} />
+                  </div>
+                ))}

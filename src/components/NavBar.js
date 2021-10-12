@@ -4,24 +4,35 @@ import { motion } from "framer-motion";
 import "react-awesome-button/dist/styles.css";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { colors } from "../configs/colors";
+import Tilt from "react-parallax-tilt";
 export default function NavBar() {
   return (
-    <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+    <Navbar
+      style={{ height: 140 }}
+      className="shadow-lg"
+      collapseOnSelect
+      expand="md"
+      bg="dark"
+      variant="dark"
+      sticky="top"
+    >
       <Container>
         <Navbar.Brand as={NavLink} to="/">
           <motion.div
             whileHover={{
-              scale: 1.3,
+              scale: 1.2,
               y: -20,
               color: colors.shyGreen,
             }}
-            transition={{}}
+            transition={{ type: "spring", stiffness: 200, damping: 7 }}
             className=""
           >
-            <span className="homeLogo ">
-              <span>&#60;</span>Abba
-              <span>/&#62;</span>
-            </span>
+            <Tilt>
+              <span className="homeLogo ">
+                <span>&#60;</span>Abba
+                <span>/&#62;</span>
+              </span>
+            </Tilt>
           </motion.div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -35,14 +46,13 @@ export default function NavBar() {
             >
               <motion.div
                 whileHover={{
-                  scale: 1.3,
+                  scale: 1.5,
                   y: -20,
                   color: colors.shyGreen,
                 }}
-                transition={{}}
-                className=""
+                transition={{ type: "spring", stiffness: 200, damping: 7 }}
               >
-                Projects
+                <Tilt>Projects</Tilt>
               </motion.div>
             </Nav.Link>
           </Nav>

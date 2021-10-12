@@ -8,7 +8,7 @@ export default {
       type: "string",
     },
     {
-      name: "Date",
+      name: "date",
       type: "datetime",
     },
     {
@@ -16,8 +16,23 @@ export default {
       type: "text",
     },
     {
-      name: "image",
-      type: "url",
+      name: "mainImage",
+      title: "Main image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: "cardAngle",
+      title: "Card Angle",
+      type: "string",
+      options: {
+        list: [
+          { value: "-20deg", title: "Lean Left" },
+          { value: "20deg", title: "Lean Right" },
+        ],
+      },
     },
   ],
 };

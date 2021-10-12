@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 .cursive {
   font-family: "Lobster", cursive;
   font-weight: 700;
@@ -12,6 +12,18 @@
 
 .content-border {
   border: 5px inset #d087a5;
+  padding: 0px;
+  margin: 0px;
+}
+
+.home-banner {
+  background-image: url("../src/images/abbaCartoon.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .homeLogo {
@@ -23,6 +35,11 @@
 
 .annie-font {
   font-family: "Annie Use Your Telescope", cursive;
+  font-weight: 700;
+}
+
+.abril-font {
+  font-family: "Abril Fatface", cursive;
 }
 
 .item a:hover {
