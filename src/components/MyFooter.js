@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row, Form } from "react-bootstrap";
+import { Col, Container, Row, Form, Button } from "react-bootstrap";
 import Lottie from "react-lottie";
 import * as loveExplosion from "../animations/loveExplosion.json";
 import { AwesomeButton } from "react-awesome-button";
@@ -33,13 +33,10 @@ export default function MyFooter() {
   return (
     <footer>
       <Container
-        className="d-flex flex-column bg-dark justify-content-center align-items-center "
+        className="d-flex flex-column bg-dark justify-content-center align-items-center annie-font"
         fluid
       >
-        <Row
-          style={{ fontWeight: 700 }}
-          className="d-flex flex-column align-items-center text-center justify-content-center h4 text-black mt-3 annie-font content-border-solid rounded-pill p-2 bg-white box-with-shadow"
-        >
+        <Row className="d-flex flex-column align-items-center text-center chuck-row text-has-shadow justify-content-center h4 text-black mt-3 annie-font content-border-solid rounded-pill p-2 bg-white box-with-shadow">
           <p className="mb-3">some light chuck Norris jokes ::</p>
           <p>{chucksJokes}</p>
         </Row>
@@ -58,12 +55,12 @@ export default function MyFooter() {
                   placeholder="..."
                 />
               </Form.Group>
-              <AwesomeButton type="secondary" ripple size="medium">
+              <Button className="rounded-pill box-with-shadow text-has-shadow">
                 submit
-              </AwesomeButton>
+              </Button>
             </Form>
           </Col>
-          <Col className="d-flex flex-row align-items-center justify-content-center text-white abril-font">
+          <Col className="d-flex flex-row align-items-center justify-content-center text-white ">
             <span className="h5">source code:</span>
             <SocialIcon
               style={{ marginLeft: 10 }}
@@ -71,7 +68,7 @@ export default function MyFooter() {
               url="https://github.com/AdamuAbba/myPortfolio"
             />
           </Col>
-          <Col className="d-flex align-items-center justify-content-center text-white abril-font h6">
+          <Col className="d-flex align-items-center justify-content-center text-white h6">
             <div className="d-flex flex-row align-items-center justify-content-center">
               Built with
               <Lottie options={defaultOptions} height={80} width={80} />
@@ -85,9 +82,7 @@ export default function MyFooter() {
             fluid
             className=" d-flex align-items-center justify-content-center"
           >
-            <p className=" text-white abril-font h4 text-has-shadow">
-              october 2021
-            </p>
+            <p className=" text-white h4 text-has-shadow">october 2021</p>
           </Container>
         </Row>
       </Container>

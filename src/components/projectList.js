@@ -78,22 +78,31 @@ export default function ProjectList() {
                   <h1 className=" project-count  styled-header">
                     0{index + 1}
                   </h1>
-                  <h1 className="project-name">{eachProject.title}</h1>
-                  <p className="project-description">
+                  <h1 className="project-name text-has-shadow">
+                    {eachProject.title}
+                  </h1>
+                  <p className="project-description text-has-shadow">
                     {eachProject.description}
                   </p>
-                  <span className="project-description">Technologies :</span>
+                  <span className="project-description text-has-shadow">
+                    Technologies :
+                  </span>
                   <div className="d-flex flex-row mb-2 flex-wrap">
                     {eachProject.techs.map((techItem, index) => (
-                      <Badge key={index} pill className="m-1" bg="warning">
+                      <Badge
+                        key={index}
+                        pill
+                        className="m-1 project-technologies box-with-shadow abril-font "
+                        bg="info"
+                      >
                         {techItem}
                       </Badge>
                     ))}
                   </div>
-                  <div className="d-flex flex-row justify-content-start flex-wrap align-items-start">
+                  <div className="d-flex flex-row justify-content-start flex-wrap align-items-start text-has-shadow">
                     <motion.div
                       whileHover={{ y: -5, scale: 1.1 }}
-                      className="m-2"
+                      className="m-2 abril-font box-with-shadow text-has-shadow"
                     >
                       <AwesomeButtonSocial
                         type="github"
@@ -109,7 +118,7 @@ export default function ProjectList() {
 
                     <motion.div
                       whileHover={{ y: -5, scale: 1.1 }}
-                      className="m-2"
+                      className="m-2 abril-font box-with-shadow text-has-shadow"
                     >
                       <AwesomeButton
                         type="primary"
