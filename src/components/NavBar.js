@@ -1,31 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import "react-awesome-button/dist/styles.css";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { colors } from "../configs/colors";
 import Tilt from "react-parallax-tilt";
+import { Sling as Hamburger } from "hamburger-react";
+import { useSelector, useDispatch } from "react-redux";
+import { setBurgerOpen } from "../Redux/hamburgerSlice";
+
 export default function NavBar() {
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const [navBarColor, setNavBarColor] = useState("");
+  const handleScroll = () => {
+    let scrollVal = window.scrollY;
+    scrollVal >= 200 ? setNavBarColor("dark") : setNavBarColor("");
+  };
+  const dispatch = useDispatch();
+  const toggleState = useSelector((state) => state.hamburger.isOpen);
   return (
     <Navbar
-      style={{ height: 140 }}
-      className="shadow-lg"
+      style={{ position: "absolute", top: 0, height: 120 }}
+      className="container-fluid "
       collapseOnSelect
       expand="md"
-      bg="dark"
       variant="dark"
       sticky="top"
+      bg={navBarColor}
     >
-      <Container>
+      <Container fluid>
         <Navbar.Brand as={NavLink} to="/">
           <motion.div
             whileHover={{
               scale: 1.2,
-              y: -20,
-              color: colors.shyGreen,
+              y: -10,
             }}
-            transition={{ type: "spring", stiffness: 200, damping: 7 }}
-            className=""
+            transition={{ type: "spring", stiffness: 210, damping: 7 }}
           >
             <Tilt>
               <span className="homeLogo ">
@@ -35,28 +49,36 @@ export default function NavBar() {
             </Tilt>
           </motion.div>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link
-              as={NavLink}
-              activeClassName="text-white rounded bg-danger"
-              to="/projects"
-              className="annie-font h2"
+        <Navbar.Toggle className="navbar-toggler">
+          <Hamburger
+            onToggle={(toggled) => {
+              dispatch(setBurgerOpen(toggled));
+            }}
+            toggle={toggleState}
+            toggled={toggleState}
+            label="menu button"
+            rounded
+            distance="md"
+            size={35}
+            duration={0.5}
+            color={colors.shyPink}
+          />
+        </Navbar.Toggle>
+
+        <Nav className="me-auto collapsible">
+          <Nav.Link as={NavLink} to="/projects" className="annie-font h2">
+            <motion.div
+              whileHover={{
+                scale: 1.5,
+                y: -20,
+                color: colors.shyGreen,
+              }}
+              transition={{ type: "spring", stiffness: 210, damping: 7 }}
             >
-              <motion.div
-                whileHover={{
-                  scale: 1.5,
-                  y: -20,
-                  color: colors.shyGreen,
-                }}
-                transition={{ type: "spring", stiffness: 200, damping: 7 }}
-              >
-                <Tilt>Projects</Tilt>
-              </motion.div>
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
+              <Tilt>Projects</Tilt>
+            </motion.div>
+          </Nav.Link>
+        </Nav>
       </Container>
     </Navbar>
   );

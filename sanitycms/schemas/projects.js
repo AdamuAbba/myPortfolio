@@ -1,18 +1,21 @@
 export default {
-  name: "attributes",
-  title: "Attributes",
+  name: "projects",
+  title: "Projects",
   type: "document",
   fields: [
     {
       name: "title",
+      title: "Title",
       type: "string",
     },
     {
       name: "date",
+      title: "Date",
       type: "datetime",
     },
     {
       name: "description",
+      title: "Description",
       type: "text",
     },
     {
@@ -24,14 +27,22 @@ export default {
       },
     },
     {
-      name: "cardAngle",
-      title: "Card Angle",
-      type: "string",
+      name: "gitUrl",
+      title: "GitHub Link",
+      type: "url",
+    },
+    {
+      name: "liveUrl",
+      title: "Live Link",
+      type: "url",
+    },
+    {
+      name: "techs",
+      title: "techs used",
+      type: "array",
+      of: [{ type: "string" }],
       options: {
-        list: [
-          { value: "-20deg", title: "Lean Left" },
-          { value: "20deg", title: "Lean Right" },
-        ],
+        layout: "tags",
       },
     },
   ],

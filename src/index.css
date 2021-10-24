@@ -6,31 +6,121 @@
   font-weight: 700;
 }
 
-.text-has-shadow {
-  text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.75);
+:root {
+  --shyPink: #d087a5;
+  --shyDark: #212529;
 }
 
-.content-border {
-  border: 5px inset #d087a5;
+.text-has-shadow {
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6);
+}
+
+.content-border-solid {
+  border: 5px solid #d087a5;
   padding: 0px;
   margin: 0px;
 }
 
+.timeline-card {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-card {
+    padding: 0;
+    border-radius: 0;
+    box-shadow: 0rem 0rem 0rem 0;
+  }
+}
+
+.box-with-shadow {
+  -webkit-box-shadow: 13px 12px 8px -6px rgba(0, 0, 0, 0.74);
+  box-shadow: 13px 12px 8px -6px rgba(0, 0, 0, 0.74);
+}
+
+.hideBar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 .home-banner {
-  background-image: url("../src/images/abbaCartoon.png");
-  background-position: top;
+  background-image: url("https://images.wallpaperscraft.com/image/single/cube_shape_3d_144105_2560x1440.jpg");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+}
+
+/* project list styling */
+
+.project-count {
+  font-size: 5rem;
+}
+
+.project-name {
+  font-size: 3.5rem;
+}
+
+.project-description {
+  font-size: 1.5rem;
+}
+
+.universal-color {
+  background-color: #020305;
+}
+
+.styled-header {
+  color: #d087a5;
+  font-family: "Annie Use Your Telescope", cursive;
+  font-weight: 700;
+  text-shadow: 1px 0px 1px #cccccc, 0px 1px 1px #eeeeee, 2px 1px 1px #cccccc,
+    1px 2px 1px #eeeeee, 3px 2px 1px #cccccc, 2px 3px 1px #eeeeee,
+    4px 3px 1px #cccccc, 3px 4px 1px #eeeeee, 5px 4px 1px #cccccc,
+    4px 5px 1px #eeeeee, 6px 5px 1px #cccccc, 5px 6px 1px #eeeeee,
+    7px 6px 1px #cccccc;
+}
+
+.hamburger-container {
+  width: 50%;
+  height: 70%;
+  background-color: var(--shyDark);
+}
+.navbar-toggler {
+  border: none;
+}
+
+.my-logo {
+  height: 90px;
+  width: 90px;
+}
+
+@media screen and (max-width: 600px) {
+  .collapsible {
+    display: none;
+  }
 }
 
 .homeLogo {
   font-family: "Annie Use Your Telescope", cursive;
-  font-size: 6rem;
+  font-size: 8rem;
   font-weight: 700;
   color: #d087a5;
+  letter-spacing: 0.1em;
+  text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a,
+    0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222,
+    0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a,
+    0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212,
+    0 22px 30px rgba(0, 0, 0, 0.9);
+}
+
+@media screen and (max-width: 600px) {
+  .homeLogo {
+    font-size: 3rem;
+  }
 }
 
 .annie-font {
@@ -42,9 +132,213 @@
   font-family: "Abril Fatface", cursive;
 }
 
-.item a:hover {
-  color: skyblue;
+/* glitch text css config */
+
+.glitch {
+  font-size: 6rem;
+  /* font-family: "Lobster", cursive; */
+  font-family: "Abril Fatface", cursive;
+  /* color: #ffff; */
+  font-weight: 700;
+  position: relative;
+
+  text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+    -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+    0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+
+  animation: glitch 500ms infinite;
 }
-.card-transform {
-  transform: rotate(-20deg);
+
+@media screen and (max-width: 600px) {
+  .glitch {
+    font-size: 2.3rem;
+  }
+}
+
+.glitch span {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.glitch span:first-child {
+  animation: glitch 650ms infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  transform: translate(-0.025em, -0.0125em);
+  /* color: green; */
+  opacity: 0.8;
+}
+
+.glitch span:last-child {
+  animation: glitch 375ms infinite;
+  clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+  transform: translate(0.0125em, 0.025em);
+  /* color: red; */
+  opacity: 0.8;
+}
+
+/* https://web.dev/prefers-reduced-motion/#(bonus)-forcing-reduced-motion-on-all-websites */
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+      -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+.bannerText {
+  font-size: 1.7rem;
+  color: #fff;
+  /* font-family: "Lobster", cursive; */
+
+  font-family: "Annie Use Your Telescope", cursive;
+  /* font-family: "Abril Fatface", cursive; */
+  text-align: center;
+  font-weight: 800;
+}
+
+@media screen and (max-width: 600px) {
+  .bannerText {
+    font-size: 1.3rem;
+  }
+}
+
+.busy-bee {
+  height: 98px;
+  width: 98px;
+}
+
+@media screen and (max-width: 600px) {
+  .busy-bee {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+.tech-heading {
+  font-size: 4rem;
+}
+
+.tech-title {
+  font-size: 1.5rem;
+  color: #ffff;
+  font-family: "Annie Use Your Telescope", cursive;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 600px) {
+  .tech-title {
+    font-size: 1.3rem;
+  }
+}
+
+.project-image {
+  height: 25rem;
+  width: 25rem;
+}
+
+@media screen and (max-width: 600px) {
+  .project-image {
+    height: 13rem;
+    width: 13rem;
+  }
+}
+
+.project-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .project-img-col {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.timeline-text {
+  font-size: 4.3rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-text {
+    font-size: 3rem;
+  }
+}
+
+.project-header {
+  font-size: 5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .project-header {
+    font-size: 3rem;
+  }
+}
+
+.about-header {
+  color: #d087a5;
+  font-size: 5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .about-header {
+    font-size: 3.3rem;
+  }
+}
+
+.about-subtext {
+  font-size: 2.6rem;
+}
+
+@media screen and (max-width: 600px) {
+  .about-subtext {
+    font-size: 2rem;
+  }
 }
