@@ -17,8 +17,6 @@
 
 .content-border-solid {
   border: 5px solid #d087a5;
-  padding: 0px;
-  margin: 0px;
 }
 
 .timeline-card {
@@ -93,23 +91,26 @@
 .chuck-row {
   height: auto;
   width: auto;
-  font-size: 2rem;
+  background-color: #fff;
+  font-size: 1.5rem;
 }
 
-.chuck-joke-text {
+.footer-globals {
+  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 600px) {
   .chuck-row {
     height: auto;
     width: auto;
-    font-size: 19px;
+    font-size: 17px;
   }
 }
 
 .hamburger-container {
   width: 50%;
   height: 70%;
+  margin-top: 20%;
   background-color: var(--shyDark);
 }
 .navbar-toggler {
@@ -159,8 +160,8 @@
 
 .glitch {
   font-size: 6rem;
-  /* font-family: "Lobster", cursive; */
-  font-family: "Abril Fatface", cursive;
+  font-family: "Lobster", cursive;
+  /* font-family: "Abril Fatface", cursive; */
   /* color: #ffff; */
   font-weight: 700;
   position: relative;
@@ -269,9 +270,14 @@
   }
 }
 
+.drop-effect {
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+}
+
 .busy-bee {
   height: 98px;
   width: 98px;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 
 @media screen and (max-width: 600px) {

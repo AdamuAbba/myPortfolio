@@ -1,9 +1,0 @@
-import sanityClient from "../client";
-
-      return await sanityClient
-  .fetch(
-    `*[_type == "author"]{time,cardTitle,cardSubTitle,cardDetailedText,cardImageUrl}`
-      )
- .then((res) => console.log(res));
-   }
- );

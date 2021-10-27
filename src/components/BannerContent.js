@@ -130,7 +130,11 @@ export default function BannerContent() {
 
       <div className="d-flex flex-wrap mb-2 align-items-center justify-content-center">
         {socialButtonData.map((item) => (
-          <motion.div key={item.id} whileHover={{ y: -10, scale: 1.3 }}>
+          <motion.div
+            key={item.id}
+            whileHover={{ y: -10, scale: 1.3 }}
+            transition={{ type: "spring", stiffness: 200, damping: 9 }}
+          >
             <motion.div
               initial={{ rotateX: -180 }}
               animate={{ rotateX: 0 }}
@@ -144,6 +148,7 @@ export default function BannerContent() {
               className="me-2"
             >
               <SocialIcon
+                className="drop-effect"
                 network={item.network}
                 fgColor="#ffff"
                 url={item.link}
