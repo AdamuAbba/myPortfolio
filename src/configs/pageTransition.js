@@ -6,14 +6,6 @@ export const transitionConfig = {
       delay: 0.7,
     },
   },
-  HomeVisible: {
-    transform: " scale(1) rotateX(0deg)",
-    opacity: 1,
-    transition: {
-      duration: 0.7,
-      delay: 1,
-    },
-  },
   visible: {
     transform: " scale(1) rotateX(0deg)",
     opacity: 1,

@@ -16,7 +16,7 @@ export default function HomeScreen() {
     <motion.main
       variants={transitionConfig}
       initial="hidden"
-      animate="HomeVisible"
+      animate="visible"
       exit="exit"
       className="bg-dark"
     >
