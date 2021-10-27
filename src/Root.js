@@ -6,9 +6,9 @@ import { AnimatePresence } from "framer-motion";
 import NavBar from "./components/NavBar";
 import HamburgerComp from "./components/HamburgerComp";
 import AnimatedCursor from "react-animated-cursor";
-
 const Root = () => {
   const location = useLocation();
+
   return (
     <div className="bg-dark" style={{ position: "relative" }}>
       <NavBar />

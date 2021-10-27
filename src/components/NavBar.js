@@ -22,6 +22,23 @@ export default function NavBar() {
   };
   const dispatch = useDispatch();
   const toggleState = useSelector((state) => state.hamburger.isOpen);
+  const navConfig = {
+    hidden: {
+      opacity: 0,
+      x: -50,
+    },
+    shown: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: 0.5,
+        duration: 1,
+        type: "spring",
+        stiffness: 190,
+        damping: 6,
+      },
+    },
+  };
   return (
     <Navbar
       style={{ position: "absolute", top: 0, height: 120 }}
@@ -35,18 +52,25 @@ export default function NavBar() {
       <Container fluid>
         <Navbar.Brand as={NavLink} to="/">
           <motion.div
-            whileHover={{
-              scale: 1.2,
-              y: -10,
-            }}
-            transition={{ type: "spring", stiffness: 210, damping: 7 }}
+            variants={navConfig}
+            initial="hidden"
+            animate="shown"
+            className=""
           >
-            <Tilt>
-              <span className="homeLogo ">
-                <span>&#60;</span>Abba
-                <span>/&#62;</span>
-              </span>
-            </Tilt>
+            <motion.div
+              whileHover={{
+                scale: 1.2,
+                y: -10,
+              }}
+              transition={{ type: "spring", stiffness: 210, damping: 7 }}
+            >
+              <Tilt>
+                <span className="homeLogo ">
+                  <span>&#60;</span>Abba
+                  <span>/&#62;</span>
+                </span>
+              </Tilt>
+            </motion.div>
           </motion.div>
         </Navbar.Brand>
         <Navbar.Toggle className="navbar-toggler">
