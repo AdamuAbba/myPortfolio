@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+body {
+  height: 100vh;
+}
 .cursive {
   font-family: "Lobster", cursive;
   font-weight: 700;
@@ -256,10 +259,9 @@
 .bannerText {
   font-size: 1.7rem;
   color: #fff;
-  /* font-family: "Lobster", cursive; */
 
-  font-family: "Annie Use Your Telescope", cursive;
-  /* font-family: "Abril Fatface", cursive; */
+  /* font-family: "Annie Use Your Telescope", cursive; */
+  font-family: "Abril Fatface", cursive;
   text-align: center;
   font-weight: 800;
 }

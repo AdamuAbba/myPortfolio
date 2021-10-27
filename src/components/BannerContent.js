@@ -111,7 +111,7 @@ export default function BannerContent() {
         <span aria-hidden="true">shy&#60;X/&#62;perience</span>
       </h1>
 
-      <motion.p className=" d-flex flex-column bannerText">
+      <motion.p className=" d-flex flex-column bannerText text-has-shadow">
         <span>"Hi, Welcome i'm Abba i'm a</span>
         <span className="text-danger">
           <Typewriter
@@ -125,7 +125,7 @@ export default function BannerContent() {
           />
         </span>
         <br />
-        who just wants to code"
+        <span>who just wants to code"</span>
       </motion.p>
 
       <div className="d-flex flex-wrap mb-2 align-items-center justify-content-center">

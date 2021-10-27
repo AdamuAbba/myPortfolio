@@ -4,6 +4,7 @@ import * as javascriptLogo from "../animations/javascript.json";
 import * as firebaseLogo from "../animations/firebase.json";
 import * as htmlLogo from "../animations/html5.json";
 import * as cssLogo from "../animations/css3.json";
+import * as reactNativeLogo from "../animations/reactNative.json";
 import Lottie from "react-lottie";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
@@ -43,6 +44,13 @@ const techStacks = [
     height: 91,
     width: 91,
     id: 5,
+  },
+  {
+    objName: reactNativeLogo,
+    title: "React-native",
+    height: 91,
+    width: 91,
+    id: 6,
   },
 ];
 
