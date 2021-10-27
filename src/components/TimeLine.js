@@ -20,7 +20,7 @@ export default function TimeLine() {
       dispatch(setTimeline(myData));
     };
     fetchData();
-  }, []);
+  }, [dispatch]);
 
   return (
     <Container

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Col, Container, Row, Form, Button } from "react-bootstrap";
+import { Col, Container, Row, Form } from "react-bootstrap";
 import Lottie from "react-lottie";
 import * as loveExplosion from "../animations/loveExplosion.json";
 import { SocialIcon } from "react-social-icons";

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Col, Container, Row, Badge } from "react-bootstrap";
-import { colors } from "../configs/colors";
 import { AwesomeButton, AwesomeButtonSocial } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import sanityClient from "../client";
