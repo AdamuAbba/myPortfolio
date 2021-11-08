@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import Lottie from "react-lottie";
 import { motion } from "framer-motion";
 import * as confusedBee from "../animations/confusedBee.json";
@@ -30,6 +30,33 @@ const socialButtonData = [
   },
 ];
 
+const parentConfig = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.3, delay: 0.4 },
+  },
+};
+
+const childConfig = {
+  hidden: {
+    opacity: 0,
+    scale: 0,
+  },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.7,
+      type: "spring",
+      stiffness: 150,
+      damping: 7,
+    },
+  },
+};
+
 const defaultOptions = {
   loop: true,
   autoplay: true,
@@ -40,12 +67,18 @@ const defaultOptions = {
 };
 export default function BannerContent() {
   return (
-    <Container
-      className="d-flex flex-column justify-content-center align-items-center"
-      fluid
+    <motion.div
+      variants={parentConfig}
+      initial="hidden"
+      animate="show"
+      className="d-flex container-fluid flex-column justify-content-center align-items-center"
+      style={{ position: "absolute", top: "20%" }}
     >
-      <Row className="">
-        <Col className="d-flex justify-content-center align-items-center p-1">
+      <Row>
+        <motion.div
+          variants={childConfig}
+          className="d-flex col justify-content-center align-items-center p-1"
+        >
           <motion.div
             whileHover={{ y: -5 }}
             transition={{
@@ -68,9 +101,12 @@ export default function BannerContent() {
               />
             </Tilt>
           </motion.div>
-        </Col>
+        </motion.div>
 
-        <Col className="d-flex justify-content-center align-items-center p-1">
+        <motion.div
+          variants={childConfig}
+          className="d-flex col justify-content-center align-items-center p-1"
+        >
           <motion.div
             initial={{ scale: 1 }}
             whileHover={{ rotate: 360, y: -100, scale: 0 }}
@@ -102,16 +138,20 @@ export default function BannerContent() {
               <Lottie options={defaultOptions} className="busy-bee" />
             </motion.div>
           </motion.div>
-        </Col>
+        </motion.div>
       </Row>
+      <motion.div variants={childConfig}>
+        <h1 className="glitch">
+          <span aria-hidden="true">shy&#60;X/&#62;perience</span>
+          shy&#60;X/&#62;perience
+          <span aria-hidden="true">shy&#60;X/&#62;perience</span>
+        </h1>
+      </motion.div>
 
-      <h1 className="glitch">
-        <span aria-hidden="true">shy&#60;X/&#62;perience</span>
-        shy&#60;X/&#62;perience
-        <span aria-hidden="true">shy&#60;X/&#62;perience</span>
-      </h1>
-
-      <motion.p className=" d-flex flex-column bannerText text-has-shadow">
+      <motion.p
+        variants={childConfig}
+        className=" d-flex flex-column bannerText text-has-shadow"
+      >
         <span>"Hi, Welcome i'm Abba i'm a</span>
         <span className="text-danger">
           <Typewriter
@@ -128,35 +168,28 @@ export default function BannerContent() {
         <span>who just wants to code"</span>
       </motion.p>
 
-      <div className="d-flex flex-wrap mb-2 align-items-center justify-content-center">
+      <motion.div
+        variants={childConfig}
+        className="d-flex flex-wrap mb-2 align-items-center justify-content-center"
+      >
         {socialButtonData.map((item) => (
           <motion.div
             key={item.id}
             whileHover={{ y: -10, scale: 1.3 }}
             transition={{ type: "spring", stiffness: 200, damping: 9 }}
+            className="me-3"
           >
-            <motion.div
-              initial={{ rotateX: -180 }}
-              animate={{ rotateX: 0 }}
-              transition={{
-                delay: 0.5,
-                duration: 0.3,
-                type: "spring",
-                stiffness: 200,
-                damping: 7,
-              }}
-              className="me-2"
-            >
-              <SocialIcon
-                className="drop-effect"
-                network={item.network}
-                fgColor="#ffff"
-                url={item.link}
-              />
-            </motion.div>
+            <SocialIcon
+              className="drop-effect"
+              network={item.network}
+              fgColor="#ffff"
+              url={item.link}
+            />
           </motion.div>
         ))}
-      </div>
-    </Container>
+      </motion.div>
+
+      <motion.div />
+    </motion.div>
   );
 }

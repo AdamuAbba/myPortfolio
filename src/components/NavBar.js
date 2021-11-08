@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { colors } from "../configs/colors";
@@ -31,18 +31,17 @@ export default function NavBar() {
       opacity: 1,
       x: 0,
       transition: {
-        delay: 0.5,
-        duration: 1,
+        delay: 0.9,
+        duration: 0.3,
         type: "spring",
-        stiffness: 190,
-        damping: 6,
+        stiffness: 200,
+        damping: 8,
       },
     },
   };
   return (
     <Navbar
-      style={{ position: "absolute", top: 0, height: 120 }}
-      className="container-fluid "
+      className="container-fluid my-navbar"
       collapseOnSelect
       expand="md"
       variant="dark"
@@ -50,19 +49,14 @@ export default function NavBar() {
       bg={navBarColor}
     >
       <Container fluid>
-        <Navbar.Brand as={NavLink} to="/">
-          <motion.div
-            variants={navConfig}
-            initial="hidden"
-            animate="shown"
-            className=""
-          >
+        <Navbar.Brand as={Link} to="/">
+          <motion.div variants={navConfig} initial="hidden" animate="shown">
             <motion.div
               whileHover={{
-                scale: 1.2,
-                y: -10,
+                scale: 1.1,
+                y: -9,
               }}
-              transition={{ type: "spring", stiffness: 210, damping: 7 }}
+              transition={{ type: "spring", stiffness: 200, damping: 8 }}
             >
               <Tilt>
                 <span className="homeLogo ">
@@ -90,14 +84,14 @@ export default function NavBar() {
         </Navbar.Toggle>
 
         <Nav className="me-auto collapsible">
-          <Nav.Link as={NavLink} to="/projects" className="annie-font h2">
+          <Nav.Link as={Link} to="/projects" className="annie-font h2">
             <motion.div
               whileHover={{
-                scale: 1.5,
+                scale: 1.2,
                 y: -20,
                 color: colors.shyGreen,
               }}
-              transition={{ type: "spring", stiffness: 210, damping: 7 }}
+              transition={{ type: "spring", stiffness: 200, damping: 8 }}
             >
               <Tilt>Projects</Tilt>
             </motion.div>

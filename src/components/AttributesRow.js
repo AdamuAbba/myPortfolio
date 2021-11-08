@@ -60,26 +60,24 @@ export default function AttributesRow() {
           key={item.id}
           variants={{
             hidden: {
-              x: i % 2 === 0 ? -50 : 50,
-              y: -50,
-              opacity: 0,
+              x: -100,
+              scaleX: 0,
             },
             show: {
               x: 0,
-              y: 0,
-              opacity: 1,
+              scaleX: 1,
 
               transition: {
                 type: "spring",
-                bounce: 0.5,
-                duration: 1,
-                delay: i * 0.5,
+                stiffness: 220,
+                damping: 9,
+                duration: 0.4,
+                delay: i * 0.3,
               },
             },
           }}
           initial="hidden"
           animate={animation}
-          transition={{ type: "spring", bounce: 0.5 }}
           className="m-2"
         >
           <motion.div

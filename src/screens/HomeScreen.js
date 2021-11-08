@@ -15,17 +15,15 @@ export default function HomeScreen() {
   return (
     <motion.main
       variants={transitionConfig}
-      initial="hidden"
-      animate="visible"
+      initial="homeHidden"
+      animate="homeVisible"
       exit="exit"
       className="bg-dark"
     >
       <Container fluid>
         <Row style={{ position: "relative" }}>
           <Particles className="home-banner" params={ParticleConfig} />
-          <Container style={{ position: "absolute", top: "20%" }}>
-            <BannerContent />
-          </Container>
+          <BannerContent />
         </Row>
 
         <Row className="pt-5">

@@ -46,11 +46,21 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
+.my-navbar {
+  position: absolute;
+  top: 30;
+  height: 10rem;
+}
+
+@media screen and (max-width: 600px) {
+  .my-navbar {
+    position: absolute;
+    top: 0;
+    height: 5rem;
+  }
+}
+
 .home-banner {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
   width: 100%;
   height: 100vh;
 }
@@ -162,8 +172,9 @@ body {
 
 .glitch {
   font-size: 6rem;
-  font-family: "Lobster", cursive;
-  /* font-family: "Abril Fatface", cursive; */
+  color: var(--shyPink);
+
+  font-family: "Abril Fatface", cursive;
   /* color: #ffff; */
   font-weight: 700;
   position: relative;

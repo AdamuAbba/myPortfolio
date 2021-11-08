@@ -92,8 +92,8 @@ export default function TechStacks() {
               transition: {
                 type: "spring",
                 bounce: 0.5,
-                duration: 1,
-                delay: i * 0.5,
+                duration: 0.3,
+                delay: i * 0.2,
               },
             },
           }}
