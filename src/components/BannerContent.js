@@ -36,7 +36,7 @@ const parentConfig = {
   },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.3, delay: 0.4 },
+    transition: { staggerChildren: 0.3, delay: 0.9 },
   },
 };
 

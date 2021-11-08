@@ -91,7 +91,8 @@ export default function TechStacks() {
               opacity: 1,
               transition: {
                 type: "spring",
-                bounce: 0.5,
+                stiffness: 220,
+                damping: 9,
                 duration: 0.3,
                 delay: i * 0.2,
               },

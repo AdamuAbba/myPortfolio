@@ -60,13 +60,14 @@ export default function AttributesRow() {
           key={item.id}
           variants={{
             hidden: {
-              x: -100,
-              scaleX: 0,
+              scaleY: 0,
+              opacity: 0,
+              x: -50,
             },
             show: {
+              scaleY: 1,
+              opacity: 1,
               x: 0,
-              scaleX: 1,
-
               transition: {
                 type: "spring",
                 stiffness: 220,
