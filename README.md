@@ -1,9 +1,9 @@
 
 # My Portfolio
 
-finally!, my very own portfolio site <img src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/face-with-hand-over-mouth_1f92d.png"/>
+finally!, my very own portfolio site <img src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/face-with-hand-over-mouth_1f92d.png" height="25" width="25"/>
 
-## Demo
+## Demo 
 order..
 
 - Home Page                  
@@ -29,7 +29,7 @@ order..
   
 ## Tech Stack
 
-**Client:** HTML 5, CSS 3, Javascript, React, 
+**Client:** HTML 5, CSS 3, Bootstrap, Javascript, React, 
 
 **Server:** Sanity.io
 
@@ -44,5 +44,5 @@ order..
   
 ## Appendix
 
-working with sanity.io was the best decision ever because i can add and delete projects from my portfolio without touching my source code, how cool is that! <img src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/smiling-face-with-sunglasses_1f60e.png">
+working with sanity.io was the best decision ever because i can add and delete projects from my portfolio without touching my source code, how cool is that! <img src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/smiling-face-with-sunglasses_1f60e.png" height="25" width="25">
   
