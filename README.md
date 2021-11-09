@@ -68,7 +68,7 @@ Mobile view\
 </a>
 
 
-**Server:** Sanity.io
+**Server:** Sanity.io,Chuck Norris API
 
   
 ## Acknowledgements
