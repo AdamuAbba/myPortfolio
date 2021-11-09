@@ -11,11 +11,11 @@ order..
 
 
 Desktop view\
-<img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/laptop%20view%201.gif" width="500" height="450"/>
+<img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/laptop%20view%201.gif" width="500" height="450"/>...
 <img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/laptop%20view%202.gif" width="500" height="450"/>
 
 Mobile view\
-<img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/mobile%20view%201.gif" width="250" height="550"/>....
+<img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/mobile%20view%201.gif" width="250" height="550"/>...
 <img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/mobile%20view%202.gif" width="250" height="550"/>
 ## Authors
 
@@ -37,7 +37,7 @@ Mobile view\
   
 ## Tech Stack
 
-**Client:** HTML 5, CSS 3, Bootstrap, Javascript, React, 
+**Client:**  [<img alt="Javascript" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1" />](https://www.javascript.com/) [<img alt="HTML" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />](https://developer.mozilla.org/en-US/docs/Web/HTML) [<img alt="CSS" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />](https://www.w3schools.com/css/) <img alt="bootstrap" src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"/> <img alt="redux" src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white"/> <img alt="react" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
 
 **Server:** Sanity.io
 
@@ -47,6 +47,7 @@ Mobile view\
  - [React docs](https://reactjs.org/)
  - [framer motion](https://www.framer.com/motion/)
  - [sanity.io](https://www.sanity.io/)
+ - [Lottie Animations](https://lottiefiles.com/)
  - [readme.so](https://readme.so/)
 
   
