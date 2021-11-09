@@ -60,12 +60,10 @@ export default function AttributesRow() {
           key={item.id}
           variants={{
             hidden: {
-              scaleY: 0,
               opacity: 0,
               x: -50,
             },
             show: {
-              scaleY: 1,
               opacity: 1,
               x: 0,
               transition: {
