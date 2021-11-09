@@ -9,13 +9,21 @@ order..
 - Home Page                  
 - Projects Page
 
+
+Desktop view\
+<img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/laptop%20view%201.gif" width="500" height="450"/>
+<img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/laptop%20view%202.gif" width="500" height="450"/>
+
+Mobile view\
+<img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/mobile%20view%201.gif" width="250" height="550"/>....
+<img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/mobile%20view%202.gif" width="250" height="550"/>
 ## Authors
 
 - [Abba Adamu](https://github.com/AdamuAbba)
 
   
 ## 🔗  Links
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherinempeterson.com/)
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://abbaportfolio.netlify.app/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abba-adamu-365a9b17a/)
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/shytypes1028)
 
