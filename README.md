@@ -48,7 +48,7 @@ Mobile view\
   
 ## Tech Stack
 
-**Client:** <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">
+**Client:**   <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
 <img alt="HTML" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
 </a>
 <a href="https://www.w3schools.com/css/">
@@ -60,6 +60,13 @@ Mobile view\
 <a href="https://react-bootstrap.github.io/" target="_blank">
 <img alt="bootstrap" src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" />
 </a>
+<a href="https://reactjs.org/" target="_blank">
+<img alt="react" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
+</a>
+<a href="https://redux-toolkit.js.org/" target="_blank">
+<img alt="redux" src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white"/>
+</a>
+
 
 **Server:** Sanity.io
 
