@@ -70,7 +70,7 @@ export default function AttributesRow() {
                 type: "spring",
                 stiffness: 220,
                 damping: 9,
-                duration: 0.4,
+                duration: 0.3,
                 delay: i * 0.3,
               },
             },
