@@ -1,14 +1,13 @@
-
 # My Portfolio
 
 finally!, my very own portfolio site <img src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/face-with-hand-over-mouth_1f92d.png" height="25" width="25"/>
 
-## Demo 
+## Demo
+
 order..
 
-- Home Page                  
+- Home Page
 - Projects Page
-
 
 Desktop view\
 <img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/laptop%20view%201.gif" width="500" height="450"/>...
@@ -17,12 +16,13 @@ Desktop view\
 Mobile view\
 <img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/mobile%20view%201.gif" width="250" height="550"/>...
 <img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/mobile%20view%202.gif" width="250" height="550"/>
+
 ## Authors
 
 - [Abba Adamu](https://github.com/AdamuAbba)
 
-  
-## 🔗  Links
+## 🔗 Links
+
 <a href="https://www.facebook.com/izshytypes" target="_blank">
 <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="facebook" />
 </a>
@@ -41,14 +41,13 @@ Mobile view\
 
 ## Features
 
-- simplisitic design
-- Simple fluid animations with {framer motion} animation library 
+- simplistic design
+- Simple fluid animations with {framer motion} animation library
 - Dynamic data using Sanity.io headless CMS
 
-  
 ## Tech Stack
 
-**Client:**   <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+**Client:** <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
 <img alt="HTML" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
 </a>
 <a href="https://www.w3schools.com/css/">
@@ -67,20 +66,16 @@ Mobile view\
 <img alt="redux" src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white"/>
 </a>
 
-
 **Server:** Sanity.io,Chuck Norris API
 
-  
 ## Acknowledgements
 
- - [React docs](https://reactjs.org/)
- - [framer motion](https://www.framer.com/motion/)
- - [sanity.io](https://www.sanity.io/)
- - [Lottie Animations](https://lottiefiles.com/)
- - [readme.so](https://readme.so/)
+- [React docs](https://reactjs.org/)
+- [framer motion](https://www.framer.com/motion/)
+- [sanity.io](https://www.sanity.io/)
+- [Lottie Animations](https://lottiefiles.com/)
+- [readme.so](https://readme.so/)
 
-  
 ## Appendix
 
 working with sanity.io was the best decision ever because i can add and delete projects from my portfolio without touching my source code, how cool is that! <img src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/smiling-face-with-sunglasses_1f60e.png" height="25" width="25">
-  
