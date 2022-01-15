@@ -14,7 +14,7 @@ const Root = () => {
       <NavBar />
       <HamburgerComp />
       <AnimatedCursor
-        trailingSpeed={4}
+        trailingSpeed={2}
         innerSize={20}
         outerSize={35}
         outerScale={3}

@@ -6,8 +6,6 @@ import MyFooter from "../components/MyFooter";
 import TechStacks from "../components/TechStacks";
 import Qualities from "../components/Qualities";
 import BannerContent from "../components/BannerContent";
-import Particles from "react-particles-js";
-import ParticleConfig from "../configs/particle-config";
 import { transitionConfig } from "../configs/pageTransition";
 export default function HomeScreen() {
   useEffect(() => {}, []);
@@ -22,8 +20,9 @@ export default function HomeScreen() {
     >
       <Container fluid>
         <Row style={{ position: "relative" }}>
-          <Particles className="home-banner" params={ParticleConfig} />
-          <BannerContent />
+          <div className="home-banner">
+            <BannerContent />
+          </div>
         </Row>
 
         <Row className="pt-5">

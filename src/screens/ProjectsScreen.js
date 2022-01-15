@@ -24,7 +24,7 @@ const ProjectsScreen = () => {
               <span>
                 <GiPaintBucket />
               </span>
-              projects List
+              project List
             </h1>
           </Container>
 

@@ -1,26 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Col, Container, Row, Badge } from "react-bootstrap";
 import { AwesomeButton, AwesomeButtonSocial } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
-import sanityClient from "../client";
+import { useSelector, useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import Loading from "./Loading";
 import Tilt from "react-parallax-tilt";
+import { loadProjectsData } from "../Redux/projectsDataSlice";
+import { HTTP_STATUS } from "../configs/constants";
 export default function ProjectList() {
+  const dispatch = useDispatch();
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(true);
-    }, 2000);
-    sanityClient
-      .fetch(
-        `*[_type == "projects"]{title,date,description,gitUrl,liveUrl,mainImage{asset->{_id,url}},techs}`
-      )
-      .then((data) => setProjectsData(data))
-      .catch((e) => console.log(e.message));
-  }, []);
+    dispatch(loadProjectsData());
+  }, [dispatch]);
 
-  const [projectsData, setProjectsData] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const { projectsData, errorMessage, status } = useSelector(
+    (state) => state.projects
+  );
 
   return (
     <Container
@@ -28,10 +24,9 @@ export default function ProjectList() {
       className="text-white d-flex align-items-center justify-content-center"
     >
       <Row className="d-flex flex-column justify-content-center align-items-center">
-        {!isLoaded ? (
+        {status === HTTP_STATUS.PENDING ? (
           <Loading />
-        ) : (
-          projectsData &&
+        ) : status === HTTP_STATUS.SUCCESS ? (
           projectsData.map((eachProject, index) => (
             <Row key={index} className="d-flex  flex-row annie-font mb-3">
               <Col className="project-img-col">
@@ -135,7 +130,9 @@ export default function ProjectList() {
               </Col>
             </Row>
           ))
-        )}
+        ) : status === HTTP_STATUS.REJECTED ? (
+          <h1>{errorMessage}</h1>
+        ) : null}
       </Row>
     </Container>
   );
