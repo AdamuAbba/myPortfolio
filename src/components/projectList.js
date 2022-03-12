@@ -1,10 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Col, Container, Row, Badge, Button } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Col, Container, Row, Badge } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-
-import Popover from "react-bootstrap/Popover";
-import Overlay from "react-bootstrap/Overlay";
 import { AwesomeButton, AwesomeButtonSocial } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -13,8 +9,6 @@ import Loading from "./Loading";
 import Tilt from "react-parallax-tilt";
 import { loadProjectsData } from "../Redux/projectsDataSlice";
 import { HTTP_STATUS } from "../configs/constants";
-import Alert from "react-bootstrap/Alert";
-import AppStatusAlert from "./AppStatusAlert";
 import * as disconnected from "../animations/disconnected.json";
 import Lottie from "react-lottie";
 
@@ -30,7 +24,6 @@ const defaultOptions = {
 export default function ProjectList() {
   const dispatch = useDispatch();
   const [projectTitle, setProjectTitle] = useState("");
-  const [target, setTarget] = useState(null);
   const [show, setShow] = useState(false);
   useEffect(() => {
     dispatch(loadProjectsData());
@@ -39,18 +32,6 @@ export default function ProjectList() {
   const { projectsData, errorMessage, status } = useSelector(
     (state) => state.projects
   );
-
-  const popover = (
-    <Popover id="popover-basic">
-      <Popover.Header as="h3">Popover right</Popover.Header>
-      <Popover.Body>
-        And here's some <strong>amazing</strong> content. It's very engaging.
-        right?
-      </Popover.Body>
-    </Popover>
-  );
-
-  const buttonRef = useRef(null);
 
   const checkIfLive = (someData) => {
     if (someData.liveUrl === undefined) {

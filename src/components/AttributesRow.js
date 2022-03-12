@@ -90,7 +90,7 @@ export default function AttributesRow() {
             <Tilt glareEnable={true} glareColor="#fff" glareBorderRadius="25px">
               <Card
                 className="box-with-shadow bg-dark text-white "
-                style={{ width: "16rem", borderRadius: 25, width: "15rem" }}
+                style={{ borderRadius: 25, width: "15rem" }}
               >
                 <Card.Body className="d-flex flex-column align-items-center text-center annie-font">
                   <item.icon
