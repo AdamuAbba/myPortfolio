@@ -168,10 +168,12 @@ body {
   font-family: "Abril Fatface", cursive;
 }
 
+/* attributes card style */
+
 /* glitch text css config */
 
 .glitch {
-  font-size: 6rem;
+  font-size: 5rem;
   color: var(--shyPink);
 
   font-family: "Abril Fatface", cursive;
@@ -187,6 +189,12 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+  .glitch {
+    font-size: 2.3rem;
+  }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 767px) {
   .glitch {
     font-size: 2.3rem;
   }
@@ -267,9 +275,8 @@ body {
 }
 
 .bannerText {
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   color: #fff;
-
   /* font-family: "Annie Use Your Telescope", cursive; */
   font-family: "Abril Fatface", cursive;
   text-align: center;
@@ -279,6 +286,12 @@ body {
 @media screen and (max-width: 600px) {
   .bannerText {
     font-size: 1.3rem;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .bannerText {
+    font-size: 2.5rem;
   }
 }
 
@@ -360,6 +373,13 @@ body {
 @media screen and (max-width: 600px) {
   .project-header {
     font-size: 3rem;
+  }
+}
+
+/* Iphone 6 size */
+@media only screen and (min-width: 750px) and (max-width: 767px) {
+  .project-header {
+    margin-top: 2.6rem;
   }
 }
 

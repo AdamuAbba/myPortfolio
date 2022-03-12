@@ -152,19 +152,19 @@ export default function BannerContent() {
         variants={childConfig}
         className=" d-flex flex-column bannerText text-has-shadow"
       >
-        <span>"Hi, Welcome i'm Abba i'm a</span>
+        <span>"Hey, i'm Abba a</span>
         <span className="text-danger">
           <Typewriter
-            words={[" simple Guy", " busy bee"]}
+            words={["simple Guy", "busy bee"]}
             loop={true}
             cursor
-            cursorStyle="_"
+            cursorStyle="<|>"
             typeSpeed={300}
             deleteSpeed={70}
             delaySpeed={1000}
           />
         </span>
-        <br />
+
         <span>who just wants to code"</span>
       </motion.p>
 

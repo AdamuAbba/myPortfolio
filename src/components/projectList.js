@@ -1,5 +1,10 @@
-import React, { useEffect } from "react";
-import { Col, Container, Row, Badge } from "react-bootstrap";
+import React, { useEffect, useState, useRef } from "react";
+import { Col, Container, Row, Badge, Button } from "react-bootstrap";
+import Modal from "react-bootstrap/Modal";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+
+import Popover from "react-bootstrap/Popover";
+import Overlay from "react-bootstrap/Overlay";
 import { AwesomeButton, AwesomeButtonSocial } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,8 +13,25 @@ import Loading from "./Loading";
 import Tilt from "react-parallax-tilt";
 import { loadProjectsData } from "../Redux/projectsDataSlice";
 import { HTTP_STATUS } from "../configs/constants";
+import Alert from "react-bootstrap/Alert";
+import AppStatusAlert from "./AppStatusAlert";
+import * as disconnected from "../animations/disconnected.json";
+import Lottie from "react-lottie";
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: disconnected.default,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid",
+  },
+};
+
 export default function ProjectList() {
   const dispatch = useDispatch();
+  const [projectTitle, setProjectTitle] = useState("");
+  const [target, setTarget] = useState(null);
+  const [show, setShow] = useState(false);
   useEffect(() => {
     dispatch(loadProjectsData());
   }, [dispatch]);
@@ -18,11 +40,87 @@ export default function ProjectList() {
     (state) => state.projects
   );
 
+  const popover = (
+    <Popover id="popover-basic">
+      <Popover.Header as="h3">Popover right</Popover.Header>
+      <Popover.Body>
+        And here's some <strong>amazing</strong> content. It's very engaging.
+        right?
+      </Popover.Body>
+    </Popover>
+  );
+
+  const buttonRef = useRef(null);
+
+  const checkIfLive = (someData) => {
+    if (someData.liveUrl === undefined) {
+      setProjectTitle(someData.title);
+      setShow(true);
+    } else {
+      setShow(false);
+      window.open(someData.liveUrl, "_blank");
+    }
+  };
+
   return (
     <Container
       fluid
       className="text-white d-flex align-items-center justify-content-center"
     >
+      {/*start of modal */}
+      <Modal
+        show={show}
+        size="sm"
+        onHide={() => setShow(false)}
+        backdrop={true}
+        keyboard={false}
+        centered
+        className="box-with-shadow annie-font"
+      >
+        <Modal.Header
+          style={{
+            backgroundColor: "#F8D7DA",
+          }}
+          closeButton
+        >
+          <Row className="align-items-center">
+            <div className="">
+              <Lottie
+                options={defaultOptions}
+                style={{
+                  width: 80,
+                }}
+              />
+            </div>
+          </Row>
+          <Modal.Title>
+            <h3
+              style={{
+                color: "#842029",
+                marginLeft: 10,
+              }}
+            >
+              <strong>App not live</strong>
+            </h3>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body
+          style={{
+            color: "#A65234",
+            fontWeight: "bold",
+          }}
+          className="text-center h5"
+        >
+          oh shoot!, i'm afraid <span className="h2 ">"{projectTitle}"</span> is
+          not live at the moment i gotta get that fixed....
+        </Modal.Body>
+        <Modal.Footer as="div" className="">
+          <em style={{ fontSize: 19 }}>
+            <q>click anywhere to dismiss</q>
+          </em>
+        </Modal.Footer>
+      </Modal>
+      {/* end of modal */}
       <Row className="d-flex flex-column justify-content-center align-items-center">
         {status === HTTP_STATUS.PENDING ? (
           <Loading />
@@ -114,16 +212,16 @@ export default function ProjectList() {
                       whileHover={{ y: -5, scale: 1.1 }}
                       className="m-2 abril-font box-with-shadow text-has-shadow"
                     >
-                      <AwesomeButton
-                        type="primary"
-                        size="medium"
-                        ripple
-                        onPress={() => {
-                          window.open(eachProject.liveUrl, "_blank");
-                        }}
-                      >
-                        Live Sample
-                      </AwesomeButton>
+                      <div>
+                        <AwesomeButton
+                          type="primary"
+                          size="medium"
+                          ripple
+                          onPress={() => checkIfLive(eachProject)}
+                        >
+                          Live Sample
+                        </AwesomeButton>
+                      </div>
                     </motion.div>
                   </div>
                 </motion.div>

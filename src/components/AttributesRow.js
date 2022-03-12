@@ -12,14 +12,13 @@ const attributeData = [
   {
     icon: FaLaptopCode,
     title: "Web dev",
-    description: "creative mind in web",
+    description: "code robustness",
     id: 1,
   },
   {
     icon: IoPhonePortraitOutline,
     title: "Mobile dev",
-    description:
-      "i love front-end mobile development using React-native mobile dev",
+    description: "Experience React native developer",
     id: 2,
   },
   {
@@ -31,7 +30,7 @@ const attributeData = [
   {
     icon: MdDesignServices,
     title: "Design",
-    description: "the art of front-end design intrigues me ",
+    description: "conversion of design mockups into high quality code",
     id: 4,
   },
 ];
@@ -53,7 +52,7 @@ export default function AttributesRow() {
     <Container
       ref={ref}
       fluid
-      className="d-flex flex-row flex-wrap justify-content-center align-items-center"
+      className="d-flex  flex-row flex-wrap justify-content-center align-items-center"
     >
       {attributeData.map((item, i) => (
         <motion.div
@@ -90,8 +89,8 @@ export default function AttributesRow() {
           >
             <Tilt glareEnable={true} glareColor="#fff" glareBorderRadius="25px">
               <Card
-                className="box-with-shadow bg-dark text-white"
-                style={{ width: "16rem", borderRadius: 25 }}
+                className="box-with-shadow bg-dark text-white "
+                style={{ width: "16rem", borderRadius: 25, width: "15rem" }}
               >
                 <Card.Body className="d-flex flex-column align-items-center text-center annie-font">
                   <item.icon
@@ -118,7 +117,7 @@ export default function AttributesRow() {
                       style={{
                         color: isHovered ? colors.shyGreen : colors.shyPink,
                         width: 200,
-                        height: 3,
+                        height: 1,
                       }}
                     />
                   </motion.div>
