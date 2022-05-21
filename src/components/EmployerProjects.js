@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Badge } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
-import { AwesomeButton, AwesomeButtonSocial } from "react-awesome-button";
+import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import { useSelector, useDispatch } from "react-redux";
 import { motion } from "framer-motion";
@@ -107,7 +107,7 @@ export default function EmployerProjects() {
       </Modal>
 
       <Row className="d-flex flex-column justify-content-center align-items-center">
-        <div className=" mb-4 d-flex justify-content-center align-items-center mt-5">
+        <div className="mb-4 d-flex justify-content-center align-items-center mt-5">
           <h1 className="styled-header project-sub-header">
             <span># {""}</span>
             <span>
