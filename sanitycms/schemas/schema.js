@@ -10,6 +10,7 @@ import post from "./post";
 import author from "./author";
 import projects from "./projects";
 import timeline from "./timeline";
+import employerDocumentType from "./employerProjects";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -23,6 +24,7 @@ export default createSchema({
     post,
     author,
     projects,
+    employerDocumentType,
     timeline,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

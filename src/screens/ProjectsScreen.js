@@ -5,6 +5,7 @@ import MyFooter from "../components/MyFooter";
 import ProjectList from "../components/projectList";
 import { transitionConfig } from "../configs/pageTransition";
 import { GiPaintBucket } from "react-icons/gi";
+import EmployerProjects from "../components/EmployerProjects";
 const ProjectsScreen = () => {
   return (
     <motion.main
@@ -29,6 +30,7 @@ const ProjectsScreen = () => {
           </Container>
 
           <ProjectList />
+          <EmployerProjects />
           <MyFooter />
         </Row>
       </Container>

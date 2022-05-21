@@ -11,7 +11,9 @@ import { loadProjectsData } from "../Redux/projectsDataSlice";
 import { HTTP_STATUS } from "../configs/constants";
 import * as disconnected from "../animations/disconnected.json";
 import Lottie from "react-lottie";
-import { BsBrush } from "react-icons/bs";
+import { BsBriefcaseFill } from "react-icons/bs";
+import { GoGlobe } from "react-icons/go";
+import { getEmployerProjects } from "../Redux/employerProjectsSlice";
 
 const defaultOptions = {
   loop: true,
@@ -22,16 +24,17 @@ const defaultOptions = {
   },
 };
 
-export default function ProjectList() {
+export default function EmployerProjects() {
   const dispatch = useDispatch();
   const [projectTitle, setProjectTitle] = useState("");
   const [show, setShow] = useState(false);
   useEffect(() => {
     dispatch(loadProjectsData());
+    dispatch(getEmployerProjects());
   }, [dispatch]);
 
-  const { projectsData, errorMessage, status } = useSelector(
-    (state) => state.projects
+  const { employerProjectsResponse } = useSelector(
+    (state) => state.employerProjects
   );
 
   const checkIfLive = (someData) => {
@@ -49,7 +52,7 @@ export default function ProjectList() {
       fluid
       className="text-white d-flex align-items-center justify-content-center"
     >
-      {/*start of modal */}
+      {/*//!start of modal */}
       <Modal
         show={show}
         size="sm"
@@ -102,21 +105,21 @@ export default function ProjectList() {
           </em>
         </Modal.Footer>
       </Modal>
-      {/* end of modal */}
+
       <Row className="d-flex flex-column justify-content-center align-items-center">
-        <div className="mb-4 d-flex justify-content-center align-items-center">
+        <div className=" mb-4 d-flex justify-content-center align-items-center mt-5">
           <h1 className="styled-header project-sub-header">
             <span># {""}</span>
             <span>
-              <BsBrush /> {""}
+              <BsBriefcaseFill /> {""}
             </span>
-            Personal projects
+            Employer Projects
           </h1>
         </div>
-        {status === HTTP_STATUS.PENDING ? (
+        {employerProjectsResponse.status === HTTP_STATUS.PENDING ? (
           <Loading />
-        ) : status === HTTP_STATUS.SUCCESS ? (
-          projectsData.map((eachProject, index) => (
+        ) : employerProjectsResponse.status === HTTP_STATUS.SUCCESS ? (
+          employerProjectsResponse.isSuccess.map((eachProject, index) => (
             <Row key={index} className="d-flex  flex-row annie-font mb-3">
               <Col className="project-img-col">
                 <motion.div
@@ -187,16 +190,23 @@ export default function ProjectList() {
                       whileHover={{ y: -5, scale: 1.1 }}
                       className="m-2 abril-font box-with-shadow text-has-shadow"
                     >
-                      <AwesomeButtonSocial
-                        type="github"
-                        size="medium"
-                        ripple
-                        onPress={() => {
-                          window.open(eachProject.gitUrl, "_blank");
-                        }}
-                      >
-                        GitHub
-                      </AwesomeButtonSocial>
+                      <div>
+                        <AwesomeButton
+                          type="primary"
+                          size="medium"
+                          ripple
+                          onPress={() =>
+                            window.open(eachProject.official_site, "_blank")
+                          }
+                        >
+                          <GoGlobe
+                            style={{
+                              fontSize: "1.5rem",
+                            }}
+                          />
+                          official site
+                        </AwesomeButton>
+                      </div>
                     </motion.div>
 
                     <motion.div
@@ -219,8 +229,8 @@ export default function ProjectList() {
               </Col>
             </Row>
           ))
-        ) : status === HTTP_STATUS.REJECTED ? (
-          <h1>{errorMessage}</h1>
+        ) : employerProjectsResponse.status === HTTP_STATUS.REJECTED ? (
+          <h1>{employerProjectsResponse.isError}</h1>
         ) : null}
       </Row>
     </Container>
