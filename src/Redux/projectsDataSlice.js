@@ -1,15 +1,18 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import sanityClient from "../client";
-import { HTTP_STATUS } from "../configs/constants";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import sanityClient from '../client';
+import { HTTP_STATUS } from '../configs/constants';
 
 export const loadProjectsData = createAsyncThunk(
-  "projects/loadProjectsData",
+  'projects/loadProjectsData',
   async () => {
     return await sanityClient
       .fetch(
         `*[_type == "projects"]{title,date,description,gitUrl,liveUrl,mainImage{asset->{_id,url}},techs}`
       )
-      .then((data) => data);
+      .then((data) => {
+        console.log('project data : ', data);
+        return data;
+      });
   }
 );
 
@@ -20,7 +23,7 @@ const initialState = {
 };
 
 const projectsDataSlice = createSlice({
-  name: "projects",
+  name: 'projects',
   initialState,
   reducers: {
     setProjectsData: (state, { payload }) => {

@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "es5",
+    "baseUrl": "src",
+    "paths": {
+      "animations/*": ["animations/*"],
+      "configs/*": ["configs/*"],
+      "Redux/*": ["Redux/*"],
+      "components/*": ["components/*"],
+      "services/*": ["services/*"],
+      "assets/*": ["assets/*"],
+      "routes/*": ["routes/*"],
+      "utils/*": ["utils/*"]
+    },
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src"]
+}
