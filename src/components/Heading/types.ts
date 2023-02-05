@@ -1,6 +1,6 @@
-interface Props {
-  children: React.ReactNode;
-}
+import { Typography } from '@mui/material';
+import { ComponentProps } from 'react';
+interface Props extends ComponentProps<typeof Typography> {}
 
 type IHeading = React.FC<Props>;
 

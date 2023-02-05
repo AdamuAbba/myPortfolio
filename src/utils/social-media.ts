@@ -1,4 +1,4 @@
-import { ISocialButtonData } from 'utils/types';
+import { ISocialButtonData } from './types';
 
 const socialButtonData: ISocialButtonData[] = [
   {

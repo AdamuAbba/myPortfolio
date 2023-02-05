@@ -1,6 +1,2 @@
-interface Props {
-  state: string;
-  children: React.ReactNode;
-}
-
-export type { Props };
+type INavBar = React.FC;
+export type { INavBar };

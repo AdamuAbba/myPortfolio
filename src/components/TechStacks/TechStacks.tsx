@@ -1,107 +1,81 @@
-import { motion } from 'framer-motion';
-import Lottie, { Options } from 'react-lottie';
-import * as cssLogo from 'animations/css3.json';
-import * as firebaseLogo from 'animations/firebase.json';
-import * as htmlLogo from 'animations/html5.json';
-import * as javascriptLogo from 'animations/javascript.json';
-import * as reactLogo from 'animations/reactlogo.json';
-import * as reactNativeLogo from 'animations/reactNative.json';
-import { ITechStackList } from 'components/TechStacks/types';
-import './TechStacks.css';
-import Stack from '@mui/material/Stack';
+import { Firebase } from 'assets/animations';
 import Heading from 'components/Heading';
 import Paragraph from 'components/Paragraph';
+import type { ITechStacks } from './types';
+import Stack from '@mui/material/Stack';
+import { techStacks } from 'utils/tech-stacks';
 import { quick_bounce } from 'configs/transitionConfigs';
-
-const techStacks: ITechStackList = [
-  {
-    objName: htmlLogo,
-    title: 'HTML',
-    height: 80,
-    width: 80,
-    id: 1,
-  },
-  {
-    objName: cssLogo,
-    title: 'CSS',
-    height: 80,
-    width: 80,
-    id: 2,
-  },
-  {
-    objName: reactLogo,
-    title: 'React',
-    height: 80,
-    width: 80,
-    id: 3,
-  },
-  {
-    objName: javascriptLogo,
-    title: 'javascript',
-    height: 80,
-    width: 80,
-    id: 4,
-  },
-  {
-    objName: firebaseLogo,
-    title: 'Firebase',
-    height: 80,
-    width: 80,
-    id: 5,
-  },
-  {
-    objName: reactNativeLogo,
-    title: 'React-native',
-    height: 80,
-    width: 80,
-    id: 6,
-  },
-];
+import { motion } from 'framer-motion';
+import Lottie, { Options } from 'react-lottie';
+import './TechStacks.css';
+import { Grid } from '@mui/material';
 
 const defaultOptions: Options = {
   loop: true,
   autoplay: true,
-  animationData: firebaseLogo,
+  animationData: Firebase,
   rendererSettings: {
     preserveAspectRatio: 'xMidYMid slice',
   },
 };
 
-const TechStacks = () => {
+const TechStacks: ITechStacks = () => {
   return (
-    <Stack className="tech-view" spacing={4}>
+    <Stack
+      sx={{
+        paddingTop: {
+          md: 10,
+          sm: 5,
+          xs: 0,
+        },
+      }}
+      spacing={2}
+    >
       <Heading>skills</Heading>
-      <Stack direction="row" spacing={2}>
+      <Grid
+        rowGap={3}
+        sx={{
+          paddingTop: {
+            md: 4,
+            xs: 0,
+          },
+        }}
+        container
+        justifyContent="center"
+        alignItems="center"
+      >
         {techStacks.map((tech, i) => (
-          <motion.div
-            key={i}
-            whileHover={{ scale: 1.1, y: -6 }}
-            transition={quick_bounce}
-          >
-            <Stack
-              sx={{
-                alignItems: 'center',
-              }}
+          <Grid sm={3} md={1.5} item>
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.1, y: -6 }}
+              transition={quick_bounce}
             >
-              <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.3 }}
-                style={{ width: 100 }}
+              <Stack
+                sx={{
+                  alignItems: 'center',
+                }}
               >
-                <Lottie
-                  options={{
-                    ...defaultOptions,
-                    animationData: tech.objName.default,
-                  }}
-                  height={tech.height}
-                  width={tech.width}
-                />
-              </motion.div>
-              <Paragraph>{tech.title}</Paragraph>
-            </Stack>
-          </motion.div>
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.3 }}
+                  style={{ width: 100 }}
+                >
+                  <Lottie
+                    options={{
+                      ...defaultOptions,
+                      animationData: tech.objName,
+                    }}
+                    height={tech.height}
+                    width={tech.width}
+                  />
+                </motion.div>
+                <Paragraph>{tech.title}</Paragraph>
+              </Stack>
+            </motion.div>
+          </Grid>
         ))}
-      </Stack>
+      </Grid>
     </Stack>
   );
 };

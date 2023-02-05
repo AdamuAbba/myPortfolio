@@ -2,23 +2,10 @@
   filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 
-.main-view {
-  justify-content: center;
-  align-items: center;
-  height: 70vh;
-}
-
-.banner-image {
-  height: auto;
-  width: 40rem;
-  align-self: center;
-  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
-}
-
 /* glitch text css config */
 
 .glitch {
-  color: var(--shyPink);
+  color: #d087a5;
   position: relative;
   text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
     -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),

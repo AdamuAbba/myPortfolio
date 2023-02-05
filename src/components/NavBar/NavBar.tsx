@@ -1,77 +1,95 @@
-import AppBar from '@mui/material/AppBar';
-import Stack from '@mui/material/Stack';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import { Props } from 'components/NavBar/types';
-import { quick_bounce } from 'configs/transitionConfigs';
-import { AnimatePresence, motion } from 'framer-motion';
+import MenuIcon from '@mui/icons-material/Menu';
+import {
+  AppBar,
+  Box,
+  IconButton,
+  Menu,
+  MenuItem,
+  Stack,
+  Toolbar,
+  Typography,
+} from '@mui/material';
+import AnimatedHoverWrapper from 'components/AnimatedHoverWrapper';
 import { useState } from 'react';
-import Tilt from 'react-parallax-tilt';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
+import { pages } from 'utils/pages';
 import './NavBar.css';
+import { INavBar } from './types';
 
-const NavBar = () => {
-  const AnimatedHoverWrapper = (props: Props): JSX.Element => {
-    const [activeRoute, setActiveRoute] = useState<boolean>(false);
+const NavBar: INavBar = () => {
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const navigate = useNavigate();
 
-    const handleHoverChange = (isActive: boolean) => {
-      setActiveRoute(isActive);
-    };
-    return (
-      <motion.div
-        whileHover={{
-          scale: 1.1,
-          y: -5,
-        }}
-        onHoverStart={() => handleHoverChange(true)}
-        onHoverEnd={() => handleHoverChange(false)}
-        transition={quick_bounce}
-      >
-        <Typography
-          className="homeLogo"
-          variant={props.state === 'abba' ? 'h1' : 'h3'}
-        >
-          <Stack direction="row">
-            <AnimatePresence>
-              {activeRoute ? (
-                <motion.div
-                  initial={{ x: -100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: -100, opacity: 0 }}
-                  transition={quick_bounce}
-                >
-                  &#60;
-                </motion.div>
-              ) : null}
-            </AnimatePresence>
-            {props.children}
-            <AnimatePresence>
-              {activeRoute ? (
-                <motion.div
-                  initial={{ x: 100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: 100, opacity: 0 }}
-                  transition={quick_bounce}
-                >
-                  /&#62;
-                </motion.div>
-              ) : null}
-            </AnimatePresence>
-          </Stack>
-        </Typography>
-      </motion.div>
-    );
+  const handleCloseNavMenu = (route: string) => {
+    setAnchorElNav(null);
+    navigate(route);
+  };
+
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
   };
 
   return (
     <AppBar color="secondary" position="sticky" elevation={0}>
       <Toolbar>
-        <Link className="nav-link" to="/">
-          <AnimatedHoverWrapper state="abba">Abba</AnimatedHoverWrapper>
-        </Link>
-        <Link to="/projects" className="nav-link">
-          <AnimatedHoverWrapper state="projects">Projects</AnimatedHoverWrapper>
-        </Link>
+        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <IconButton
+            size="large"
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleOpenNavMenu}
+            color="inherit"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorElNav}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left',
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'left',
+            }}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
+            sx={{
+              display: { xs: 'block', md: 'none' },
+            }}
+          >
+            {pages.map((page, index) => (
+              <MenuItem
+                key={index}
+                onClick={() => handleCloseNavMenu(page.route)}
+              >
+                <Typography textAlign="center">{page.name}</Typography>
+              </MenuItem>
+            ))}
+          </Menu>
+        </Box>
+
+        <Stack
+          direction="row"
+          alignItems="center"
+          spacing={3}
+          sx={{
+            display: {
+              xs: 'none',
+              md: 'flex',
+            },
+          }}
+        >
+          <AnimatedHoverWrapper route="/" isLogo={true}>
+            Shy.X
+          </AnimatedHoverWrapper>
+          <AnimatedHoverWrapper route="/projects">
+            Projects
+          </AnimatedHoverWrapper>
+        </Stack>
       </Toolbar>
     </AppBar>
   );

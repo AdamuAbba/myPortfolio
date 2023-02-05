@@ -1,98 +1,149 @@
 import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import emailjs from 'emailjs-com';
+// import emailjs from 'emailjs-com';
 import { motion } from 'framer-motion';
-import { FormEvent, useRef } from 'react';
-// @ts-ignore
-import { AwesomeButton } from 'react-awesome-button';
-import 'react-awesome-button/dist/styles.css';
-import { Col, Container, Form, Row } from 'react-bootstrap';
-import Lottie from 'react-lottie';
-import { SocialIcon } from 'react-social-icons';
-import { useGetDevJokesQuery } from 'services/chuckNorissApi/endpoints/dev';
-import * as loveExplosion from 'animations/loveExplosion.json';
-import './MyFooter.css';
-import Typography from '@mui/material/Typography';
-import Paragraph from 'components/Paragraph';
-import { IMyFooter } from 'components/MyFooter/types';
-import Link from '@mui/material/Link';
-import Heading from 'components/Heading';
-import InputLabel from '@mui/material/InputLabel';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import FormControl from '@mui/material/FormControl';
+// import { FormEvent } from 'react';
 import SendIcon from '@mui/icons-material/Send';
 import LoadingButton from '@mui/lab/LoadingButton';
-import { socialButtonData } from 'utils/social-media';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+import { LoveExplosion } from 'assets/animations';
+import Heading from 'components/Heading';
+import Paragraph from 'components/Paragraph';
 import { quick_bounce } from 'configs/transitionConfigs';
 import moment from 'moment';
+import 'react-awesome-button/dist/styles.css';
+import Lottie from 'react-lottie';
+import { SocialIcon } from 'react-social-icons';
+import { socialButtonData } from 'utils/social-media';
+import './MyFooter.css';
+import { IMyFooter } from './types';
+import { useGetDevJokesQuery } from 'services/endpoints/dev';
 
 const MyFooter: IMyFooter = () => {
   const { data } = useGetDevJokesQuery();
-  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_SERVICE_ID as string,
-        process.env.REACT_APP_TEMPLATE_ID as string,
-        // @ts-ignore
-        e.target,
-        process.env.REACT_APP_USER_ID as string
-      )
-      .then((result) => {
-        console.log(result.text);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-    // @ts-ignore
-    e.target.reset();
-  };
+
+  // const sendEmail = (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   emailjs
+  //     .sendForm(
+  //       process.env.REACT_APP_SERVICE_ID as string,
+  //       process.env.REACT_APP_TEMPLATE_ID as string,
+  //       // @ts-ignore
+  //       e.target,
+  //       process.env.REACT_APP_USER_ID as string
+  //     )
+  //     .then((result) => {
+  //       console.log(result.text);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.message);
+  //     });
+  //   // @ts-ignore
+  //   e.target.reset();
+  // };
 
   const defaultOptions = {
     loop: true,
     autoplay: true,
     // @ts-ignore
-    animationData: loveExplosion.default as any,
+    animationData: LoveExplosion,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },
   };
 
   return (
-    <Stack className="footer" direction="column">
+    <Stack
+      sx={{
+        paddingTop: {
+          md: 7,
+          xs: 5,
+        },
+      }}
+      direction="column"
+    >
       <Stack mt={2} className="chuck-view">
         {/* @ts-ignore */}
         <Paragraph>"{data?.value}"</Paragraph>
         <Paragraph>chuck Norris API</Paragraph>
       </Stack>
 
-      <Stack spacing={3} pb={4}>
-        <Heading>Contact me</Heading>
-        <Stack className="second-view" direction="row">
+      <Stack
+        sx={{
+          marginTop: {
+            xs: 3,
+            md: 0,
+          },
+        }}
+        spacing={3}
+        pb={4}
+      >
+        <Heading>contact me</Heading>
+        <Stack
+          sx={{
+            flexDirection: {
+              md: 'row',
+              xs: 'column',
+            },
+          }}
+          className="second-view"
+        >
           <Stack
             spacing={4}
             className="form"
             component="form"
             noValidate
             autoComplete="off"
+            sx={{
+              width: {
+                xs: '80%',
+                md: '40%',
+              },
+            }}
           >
             <Stack spacing={4} direction="row">
-              <FormControl>
-                <InputLabel htmlFor="component-outlined">Name</InputLabel>
-                <OutlinedInput id="component-outlined" label="Name" />
+              <FormControl
+                sx={{
+                  width: '50%',
+                }}
+              >
+                <TextField
+                  sx={{
+                    backgroundColor: 'white',
+                    borderTopLeftRadius: 4,
+                    borderTopRightRadius: 4,
+                  }}
+                  label="name"
+                  variant="filled"
+                />
               </FormControl>
 
-              <FormControl>
-                <InputLabel htmlFor="component-outlined">email</InputLabel>
-                <OutlinedInput id="component-outlined" label="email" />
+              <FormControl
+                sx={{
+                  width: '50%',
+                }}
+              >
+                <TextField
+                  sx={{
+                    backgroundColor: 'white',
+                    borderTopLeftRadius: 4,
+                    borderTopRightRadius: 4,
+                  }}
+                  label="email"
+                  variant="filled"
+                />
               </FormControl>
             </Stack>
             <FormControl>
-              <InputLabel htmlFor="component-outlined">message</InputLabel>
-              <OutlinedInput
+              <TextField
+                sx={{
+                  backgroundColor: 'white',
+                  borderTopLeftRadius: 4,
+                  borderTopRightRadius: 4,
+                }}
                 multiline={true}
                 rows={4}
-                id="component-outlined"
+                variant="filled"
                 label="message"
               />
             </FormControl>
@@ -107,15 +158,15 @@ const MyFooter: IMyFooter = () => {
             </LoadingButton>
           </Stack>
 
-          <Stack spacing={2}>
-            <Stack className="lottie-view" direction="row">
-              <Paragraph>Built with</Paragraph>
+          <Stack alignItems="center" justifyContent="center" direction="column">
+            <Stack alignItems="center" direction="row">
+              <Paragraph marginRight={-2}>Built with</Paragraph>
               <Lottie
                 options={defaultOptions}
                 style={{ margin: 0 }}
                 width={80}
               />
-              <Paragraph>by Abba</Paragraph>
+              <Paragraph marginLeft={-2}>by shy.X</Paragraph>
             </Stack>
 
             <Stack spacing={3} direction="row">
@@ -134,21 +185,11 @@ const MyFooter: IMyFooter = () => {
                 </motion.div>
               ))}
             </Stack>
-            <Paragraph>
-              <Link
-                target="_blank"
-                href="mailto:abbaadamu302@gmail.com"
-                underline="always"
-                rel="noopener"
-              >
-                abbaadamu302@gmail.com
-              </Link>
-            </Paragraph>
           </Stack>
         </Stack>
       </Stack>
 
-      <Stack className="date-view">
+      <Stack pb={5} justifyContent="center" alignItems="center">
         <Stack alignItems="center" direction="row">
           <Paragraph>Portfolio source code :</Paragraph>
           <motion.div

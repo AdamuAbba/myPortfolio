@@ -1,7 +1,3 @@
-.main-view {
-  width: 100%;
-  padding-bottom: 6px;
-}
 .styled-header {
   color: #d087a5;
   text-align: center;
@@ -14,8 +10,4 @@
 
 .card-view {
   align-items: center;
-}
-
-.card-text {
-  text-align: center;
 }

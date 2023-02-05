@@ -1,5 +1,3 @@
-interface Props {}
-
-type IMyFooter = React.FC<Props>;
+type IMyFooter = React.FC;
 
 export type { IMyFooter };

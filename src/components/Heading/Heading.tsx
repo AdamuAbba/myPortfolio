@@ -1,9 +1,20 @@
 import { Typography } from '@mui/material';
-import { IHeading } from 'components/Heading/types';
+import { IHeading } from './types';
 
-const Heading: IHeading = ({ children }) => {
+const Heading: IHeading = ({ children, ...rest }) => {
   return (
-    <Typography className="styled-header" variant="h3">
+    <Typography
+      {...rest}
+      sx={{
+        fontSize: {
+          xs: '37px',
+          sm: '43px',
+          md: '3.5rem',
+        },
+      }}
+      className="styled-header"
+      variant="h3"
+    >
       {children}
     </Typography>
   );

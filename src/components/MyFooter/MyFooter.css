@@ -3,25 +3,8 @@
   align-self: center;
 }
 
-.date-view {
-  align-self: center;
-  margin-bottom: 2em;
-  align-items: center;
-}
-
-.form {
-}
-
-.footer {
-  margin-top: 10em;
-}
-
 .second-view {
   justify-content: space-evenly;
-  align-items: center;
-}
-
-.lottie-view {
   align-items: center;
 }
 

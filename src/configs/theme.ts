@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material/styles';
-import { colors } from 'configs/colors';
+import { colors } from './colors';
 
-const theme = createTheme({
+export const theme = createTheme({
   palette: {
     primary: {
       main: colors.shyPink,
@@ -28,5 +28,3 @@ const theme = createTheme({
     },
   },
 });
-
-export { theme };

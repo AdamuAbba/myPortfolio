@@ -1,45 +1,42 @@
-import CardContent from '@mui/material/CardContent';
+import { IAttributesRow } from './types';
 import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import { attributeData } from 'utils/attributes';
 import Heading from 'components/Heading';
 import Paragraph from 'components/Paragraph';
 import { quick_bounce } from 'configs/transitionConfigs';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
-import { FaLaptopCode } from 'react-icons/fa';
-import { IoPhonePortraitOutline } from 'react-icons/io5';
-import { colors } from '../../configs/colors';
+import { colors } from 'configs/colors';
 import './AttributesRow.css';
 
-const attributeData = [
-  {
-    icon: FaLaptopCode,
-    description:
-      'I have built an array of great websites using HTML5, CSS3, Javascript,React, Material UI,Tailwind CSS, Bootstrap 5 and more',
-    id: 1,
-  },
-  {
-    icon: IoPhonePortraitOutline,
-    description:
-      'i have a track record of successfully well-received and commercially viable apps built using React Native',
-    id: 2,
-  },
-];
-
-const AttributesRow = () => {
+const AttributesRow: IAttributesRow = () => {
   const [cardId, setCardId] = useState<number | null>(null);
 
   return (
     <Stack
       spacing={4}
-      className="main-view"
       sx={{
         height: 'auto',
+        paddingTop: {
+          xs: 3,
+          sm: 15,
+          md: 0,
+        },
       }}
+      justifyContent="center"
+      alignItems="center"
       direction="column"
     >
-      <Heading>Services</Heading>
-      <Stack direction="row">
+      <Heading>services</Heading>
+      <Stack
+        sx={{
+          flexDirection: {
+            xs: 'column',
+            sm: 'row',
+            md: 'row',
+          },
+        }}
+      >
         {attributeData.map((item, index) => (
           <motion.div
             key={index}
@@ -91,12 +88,22 @@ const AttributesRow = () => {
                 ) : null}
               </AnimatePresence>
               <motion.div
+                style={{
+                  alignSelf: 'center',
+                }}
                 animate={{
                   y: index === cardId ? 2 : 0,
                 }}
                 transition={quick_bounce}
               >
-                <Paragraph className="card-text">{item.description}</Paragraph>
+                <Paragraph
+                  sx={{
+                    textAlign: 'center',
+                    alignSelf: 'center',
+                  }}
+                >
+                  {item.description}
+                </Paragraph>
               </motion.div>
             </Stack>
           </motion.div>
