@@ -1,0 +1,43 @@
+{
+  "version": "2.0.0",
+
+  "tasks": [
+    {
+      "label": "New react component",
+
+      "command": "cd ${input:selectedDir} && mkdir ${input:compName} && touch '${input:compName}/${input:compName}.tsx' '${input:compName}/${input:compName}.css' '${input:compName}/index.ts' '${input:compName}/types.ts'",
+
+      "type": "shell",
+      "problemMatcher": [],
+      "presentation": {
+        "echo": false,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    }
+  ],
+
+  // ........................................................................................
+
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "compName",
+      "description": "component name",
+      "default": "component name"
+    },
+    {
+      "id": "selectedDir",
+      "type": "pickString",
+      "description": "What directory to add component to?",
+      "options": [
+        { "label": "components", "value": "src/components" },
+        { "label": "routes", "value": "src/routes" },
+        { "label": "screens", "value": "src/screens" }
+      ]
+    }
+  ]
+}

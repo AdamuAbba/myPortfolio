@@ -1,0 +1,5 @@
+.body {
+  background-color: #212529;
+  justify-content: space-between;
+  flex-grow: 1;
+}

@@ -1,0 +1,8 @@
+.text-has-shadow {
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+.box-with-shadow {
+  -webkit-box-shadow: 13px 12px 8px -6px rgba(0, 0, 0, 0.74);
+  box-shadow: 13px 12px 8px -6px rgba(0, 0, 0, 0.74);
+}
