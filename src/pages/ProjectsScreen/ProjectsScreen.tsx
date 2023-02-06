@@ -1,8 +1,7 @@
-// import EmployerProjects from 'components/EmployerProjects';
 import ProjectList from 'components/ProjectList';
 import { Stack } from '@mui/material';
 import Heading from 'components/Heading';
-import { GiPaintBucket } from 'react-icons/gi';
+import { GiAxeInLog } from 'react-icons/gi';
 
 const ProjectsScreen = () => {
   return (
@@ -12,16 +11,17 @@ const ProjectsScreen = () => {
         backgroundColor: '#212529',
       }}
     >
-      <Stack direction="column">
+      <Stack spacing={5} direction="column">
         <Heading>
           <span>
-            <GiPaintBucket />
+            <GiAxeInLog />{' '}
           </span>
           projects
+          <br />&<br />
+          collaborations
         </Heading>
         <ProjectList />
       </Stack>
-      {/* <EmployerProjects /> */}
     </Stack>
   );
 };

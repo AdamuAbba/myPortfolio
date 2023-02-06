@@ -1,13 +1,13 @@
 import api from 'services/api';
 import sanityClient from '../../client';
 
-const personal = api.injectEndpoints({
+const projects = api.injectEndpoints({
   endpoints: (builder) => ({
-    getPersonalProjects: builder.query<any, void>({
+    getProjects: builder.query<any, void>({
       queryFn: async () => {
         try {
           const response = await sanityClient.fetch(
-            `*[_type == "projects"]{title,date,description,gitUrl,liveUrl,mainImage{asset->{_id,url}},techs}`
+            `*[_type == "projects"]{title,description,gitUrl,liveUrl,youTube,mainImage{asset->{_id,url}},techs}`
           );
           return { data: response };
         } catch (error) {
@@ -24,4 +24,4 @@ const personal = api.injectEndpoints({
   }),
 });
 
-export const { useGetPersonalProjectsQuery } = personal;
+export const { useGetProjectsQuery } = projects;
