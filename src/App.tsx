@@ -1,8 +1,10 @@
 import { ThemeProvider } from '@mui/material/styles';
-import MainRoute from 'routes/MainRoute';
-import { Provider } from 'react-redux';
+import ToastContainerConfig from 'components/ToastContainerConfig';
 import { theme } from 'configs/theme';
 import store from 'features/store';
+import { Provider } from 'react-redux';
+import 'react-toastify/dist/ReactToastify.css';
+import MainRoute from 'routes/MainRoute';
 
 const App: React.FC = () => {
   return (
@@ -10,6 +12,7 @@ const App: React.FC = () => {
       <ThemeProvider theme={theme}>
         <MainRoute />
       </ThemeProvider>
+      <ToastContainerConfig />
     </Provider>
   );
 };

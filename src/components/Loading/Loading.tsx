@@ -1,7 +1,7 @@
 import { BallLoading } from 'assets/animations';
 import { ILoading } from './types';
-import { Container } from 'react-bootstrap';
 import Lottie from 'react-lottie';
+import { Container } from '@mui/material';
 
 const defaultOptions = {
   loop: true,
@@ -15,12 +15,16 @@ const defaultOptions = {
 const Loading: ILoading = () => {
   return (
     <Container
-      fluid
-      className="d-flex justify-content-center align-item-center"
+      sx={{
+        width: {
+          md: '30rem',
+          xs: '26rem',
+          sm: '30rem',
+        },
+        alignSelf: 'center',
+      }}
     >
-      <div>
-        <Lottie options={defaultOptions} />
-      </div>
+      <Lottie options={defaultOptions} />
     </Container>
   );
 };

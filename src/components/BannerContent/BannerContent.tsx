@@ -53,6 +53,7 @@ const BannerContent: IBannerContent = () => {
                   network={item.network}
                   fgColor="#ffff"
                   url={item.link}
+                  target="_blank"
                 />
               </motion.div>
             ))}

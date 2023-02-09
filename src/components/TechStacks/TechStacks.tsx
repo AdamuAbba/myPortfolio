@@ -26,7 +26,7 @@ const TechStacks: ITechStacks = () => {
         paddingTop: {
           md: 10,
           sm: 5,
-          xs: 0,
+          xs: 7,
         },
       }}
       spacing={2}
