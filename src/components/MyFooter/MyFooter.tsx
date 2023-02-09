@@ -4,43 +4,58 @@ import { motion } from 'framer-motion';
 // import { FormEvent } from 'react';
 import SendIcon from '@mui/icons-material/Send';
 import LoadingButton from '@mui/lab/LoadingButton';
-import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
+import { Container } from '@mui/material';
 import { LoveExplosion } from 'assets/animations';
 import Heading from 'components/Heading';
+import MDInput from 'components/MDInput';
 import Paragraph from 'components/Paragraph';
 import { quick_bounce } from 'configs/transitionConfigs';
+import { Formik } from 'formik';
 import moment from 'moment';
 import 'react-awesome-button/dist/styles.css';
+import {
+  RiErrorWarningFill,
+  RiMailSendLine,
+  RiSendPlaneFill,
+} from 'react-icons/ri';
 import Lottie from 'react-lottie';
 import { SocialIcon } from 'react-social-icons';
+import { toast } from 'react-toastify';
+import { CONTACT_FORM_SCHEMA, IContactForm } from 'schemas';
+import { useGetDevJokesQuery } from 'services/endpoints/dev';
+import { useSendEmailMutation } from 'services/endpoints/email';
 import { socialButtonData } from 'utils/social-media';
 import './MyFooter.css';
 import { IMyFooter } from './types';
-import { useGetDevJokesQuery } from 'services/endpoints/dev';
 
 const MyFooter: IMyFooter = () => {
-  const { data } = useGetDevJokesQuery();
+  const devJokesQuery = useGetDevJokesQuery();
+  const [sendEmail, { isLoading }] = useSendEmailMutation();
 
-  // const sendEmail = (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   emailjs
-  //     .sendForm(
-  //       process.env.REACT_APP_SERVICE_ID as string,
-  //       process.env.REACT_APP_TEMPLATE_ID as string,
-  //       // @ts-ignore
-  //       e.target,
-  //       process.env.REACT_APP_USER_ID as string
-  //     )
-  //     .then((result) => {
-  //       console.log(result.text);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.message);
-  //     });
-  //   // @ts-ignore
-  //   e.target.reset();
-  // };
+  const chuckImage = require('assets/images/chucknorris_logo_coloured_small@2x.png');
+
+  const initialValues: IContactForm = {
+    email: '',
+    name: '',
+    message: '',
+  };
+
+  const handleOnSubmit = async (values: IContactForm) => {
+    toast.promise(sendEmail(values), {
+      error: {
+        icon: () => <RiErrorWarningFill color="red" />,
+        render: () => <Paragraph>Error</Paragraph>,
+      },
+      pending: {
+        icon: () => <RiMailSendLine size={20} color="#d087a5" />,
+        render: () => <Paragraph>Transmitting capsule</Paragraph>,
+      },
+      success: {
+        icon: () => <RiSendPlaneFill size={20} color="#6cde6d" />,
+        render: () => <Paragraph>Capsule delivered</Paragraph>,
+      },
+    });
+  };
 
   const defaultOptions = {
     loop: true,
@@ -54,6 +69,7 @@ const MyFooter: IMyFooter = () => {
 
   return (
     <Stack
+      spacing={3}
       sx={{
         paddingTop: {
           md: 7,
@@ -62,11 +78,39 @@ const MyFooter: IMyFooter = () => {
       }}
       direction="column"
     >
-      <Stack mt={2} className="chuck-view">
-        {/* @ts-ignore */}
-        <Paragraph>"{data?.value}"</Paragraph>
-        <Paragraph>chuck Norris API</Paragraph>
-      </Stack>
+      <a
+        style={{ textDecoration: 'none', alignSelf: 'center', width: '75%' }}
+        href="https://api.chucknorris.io/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Stack
+          mt={2}
+          sx={{
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Container
+            sx={{
+              width: {
+                md: '10rem',
+                xs: '8rem',
+              },
+            }}
+          >
+            <img
+              src={chuckImage}
+              alt="chuck norris"
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </Container>
+          <Paragraph textAlign="center">
+            "{devJokesQuery.data?.value}"
+          </Paragraph>
+          <Paragraph>chuck Norris API</Paragraph>
+        </Stack>
+      </a>
 
       <Stack
         sx={{
@@ -88,85 +132,76 @@ const MyFooter: IMyFooter = () => {
           }}
           className="second-view"
         >
-          <Stack
-            spacing={4}
-            className="form"
-            component="form"
-            noValidate
-            autoComplete="off"
-            sx={{
-              width: {
-                xs: '80%',
-                md: '40%',
-              },
-            }}
+          <Formik
+            validateOnBlur={true}
+            initialValues={initialValues}
+            onSubmit={handleOnSubmit}
+            validationSchema={CONTACT_FORM_SCHEMA}
           >
-            <Stack spacing={4} direction="row">
-              <FormControl
+            {({ handleSubmit }) => (
+              <Stack
+                alignSelf="center"
+                spacing={4}
                 sx={{
-                  width: '50%',
+                  width: {
+                    xs: '80%',
+                    md: '40%',
+                  },
                 }}
               >
-                <TextField
-                  sx={{
-                    backgroundColor: 'white',
-                    borderTopLeftRadius: 4,
-                    borderTopRightRadius: 4,
-                  }}
-                  label="name"
-                  variant="filled"
-                />
-              </FormControl>
+                <Stack spacing={4} direction="row">
+                  <MDInput
+                    sx={{
+                      width: '50%',
+                    }}
+                    label="name"
+                    name="name"
+                  />
 
-              <FormControl
-                sx={{
-                  width: '50%',
-                }}
-              >
-                <TextField
-                  sx={{
-                    backgroundColor: 'white',
-                    borderTopLeftRadius: 4,
-                    borderTopRightRadius: 4,
-                  }}
-                  label="email"
-                  variant="filled"
+                  <MDInput
+                    sx={{
+                      width: '50%',
+                    }}
+                    label="email"
+                    name="email"
+                  />
+                </Stack>
+
+                <MDInput
+                  multiline={true}
+                  rows={4}
+                  name="message"
+                  label="message"
                 />
-              </FormControl>
-            </Stack>
-            <FormControl>
-              <TextField
-                sx={{
-                  backgroundColor: 'white',
-                  borderTopLeftRadius: 4,
-                  borderTopRightRadius: 4,
-                }}
-                multiline={true}
-                rows={4}
-                variant="filled"
-                label="message"
-              />
-            </FormControl>
-            <LoadingButton
-              endIcon={<SendIcon />}
-              loading={false}
-              loadingPosition="end"
-              variant="contained"
-              className="box-with-shadow"
-            >
-              Send
-            </LoadingButton>
-          </Stack>
+                {/*@ts-ignore*/}
+                <LoadingButton
+                  endIcon={<SendIcon />}
+                  loading={isLoading}
+                  loadingPosition="end"
+                  variant="contained"
+                  className="box-with-shadow"
+                  onClick={handleSubmit}
+                >
+                  Send
+                </LoadingButton>
+              </Stack>
+            )}
+          </Formik>
 
           <Stack alignItems="center" justifyContent="center" direction="column">
             <Stack alignItems="center" direction="row">
               <Paragraph marginRight={-2}>Built with</Paragraph>
-              <Lottie
-                options={defaultOptions}
-                style={{ margin: 0 }}
-                width={80}
-              />
-              <Paragraph marginLeft={-2}>by shy.X</Paragraph>
+              <Lottie options={defaultOptions} width={80} />
+              <Paragraph marginRight={1} marginLeft={-2}>
+                by
+              </Paragraph>
+              <Paragraph
+                sx={{
+                  color: '#d087a5',
+                }}
+              >
+                shy.X
+              </Paragraph>
             </Stack>
 
             <Stack spacing={3} direction="row">
@@ -181,6 +216,7 @@ const MyFooter: IMyFooter = () => {
                     network={item.network}
                     fgColor="#ffff"
                     url={item.link}
+                    target="_blank"
                   />
                 </motion.div>
               ))}
@@ -201,6 +237,7 @@ const MyFooter: IMyFooter = () => {
               style={{ marginLeft: 10 }}
               fgColor="#ffff"
               url="https://github.com/AdamuAbba/myPortfolio"
+              target="_blank"
             />
           </motion.div>
         </Stack>
