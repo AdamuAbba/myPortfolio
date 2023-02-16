@@ -9,7 +9,13 @@ import MyFooter from 'components/MyFooter';
 
 const MainRoute: IMainRoute = () => {
   return (
-    <Stack className="body">
+    <Stack
+      bgcolor="#212529"
+      sx={{
+        display: 'flex',
+        flex: 1,
+      }}
+    >
       <NavBar />
       <Routes>
         <Route path="/" element={<HomeScreen />} />

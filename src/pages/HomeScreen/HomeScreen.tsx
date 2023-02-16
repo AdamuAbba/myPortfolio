@@ -7,7 +7,7 @@ import './HomeScreen.css';
 
 const HomeScreen = () => {
   return (
-    <Stack direction="column">
+    <Stack bgcolor="#212529" direction="column">
       <BannerContent />
       <AttributesRow />
       <TechStacks />

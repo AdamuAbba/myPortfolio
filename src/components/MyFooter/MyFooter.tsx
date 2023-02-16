@@ -69,6 +69,8 @@ const MyFooter: IMyFooter = () => {
 
   return (
     <Stack
+      bgcolor="#212529"
+      border="none"
       spacing={3}
       sx={{
         paddingTop: {

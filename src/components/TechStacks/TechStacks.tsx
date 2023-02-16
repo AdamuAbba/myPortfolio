@@ -22,6 +22,8 @@ const defaultOptions: Options = {
 const TechStacks: ITechStacks = () => {
   return (
     <Stack
+      border="none"
+      bgcolor="#212529"
       sx={{
         paddingTop: {
           md: 10,
