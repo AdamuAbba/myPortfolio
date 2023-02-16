@@ -10,7 +10,12 @@ import { IBannerContent } from './types';
 
 const BannerContent: IBannerContent = () => {
   return (
-    <Grid container justifyContent="center" alignItems="center">
+    <Grid
+      container
+      bgcolor="#212529"
+      justifyContent="center"
+      alignItems="center"
+    >
       <Grid md={6} item>
         <img src={image} alt="abba" style={{ width: '100%', height: 'auto' }} />
       </Grid>

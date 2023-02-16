@@ -15,6 +15,7 @@ const AttributesRow: IAttributesRow = () => {
 
   return (
     <Stack
+      bgcolor="#212529"
       spacing={4}
       sx={{
         height: 'auto',
@@ -72,12 +73,13 @@ const AttributesRow: IAttributesRow = () => {
                       }}
                       transition={{ duration: 0.1 }}
                     >
-                      <hr
+                      <div
                         style={{
-                          color:
+                          backgroundColor:
                             index === cardId ? colors.shyGreen : colors.shyPink,
                           width: '13rem',
-                          height: '2px',
+                          height: '2.2px',
+                          borderRadius: '150px',
                         }}
                       />
                     </motion.div>
