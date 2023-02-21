@@ -1,23 +1,61 @@
-# My Portfolio
+# Portfolio
 
-finally!, my very own portfolio site <img src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/face-with-hand-over-mouth_1f92d.png" height="25" width="25"/>
+My Portfolio App inspired by my weird creative taste
 
-## Demo
+## Table of contents
 
-order..
+1. Installation
+2. Project structure
+3. Usage/user story
+4. Author
+5. Features
+6. Tech stack
+7. Appendix
 
-- Home Page
-- Projects Page
+## Installation
 
-Desktop view\
-<img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/laptop%20view%201.gif" width="500" height="450"/>...
-<img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/laptop%20view%202.gif" width="500" height="450"/>
+- clone repo
+  ```
+      git clone https://github.com/AdamuAbba/myPortfolio.git
+  ```
+- install dependencies
 
-Mobile view\
-<img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/mobile%20view%201.gif" width="250" height="550"/>...
-<img src="https://github.com/AdamuAbba/myPortfolio/blob/main/demo%20gifs/mobile%20view%202.gif" width="250" height="550"/>
+  ```
+      yarn
+  ```
 
-## Authors
+- build `locally`
+
+  ```
+      yarn run build
+  ```
+
+- run `locally`
+
+  ```
+      yarn run start
+  ```
+
+## Project structure
+
+- Main Route
+  - Home Screen
+  - Projects Screen
+
+Desktop
+
+<img src="./demo/shy_X_desktop.png"  width="600" >
+
+Mobile
+
+<img src="./demo/shy_X_mobile.jpg" width="150" >
+
+## User story
+
+- A user can view all projects i have worked on
+- A user can reach out to me by using the contact form in the footer
+
+## Author
 
 - [Abba Adamu](https://github.com/AdamuAbba)
 
@@ -35,47 +73,43 @@ Mobile view\
 <a href="https://abbaportfolio.netlify.app/"  target="_blank">
 <img alt="portfolio" src="https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white" />
 </a>
-<a href="https://www.linkedin.com/in/abba-adamu-365a9b17a/">
+<a href="https://www.linkedin.com/in/abba-adamu/">
 <img alt="linkedIn" src="https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
 </a>
 
 ## Features
 
 - simplistic design
-- Simple fluid animations with {framer motion} animation library
-- Dynamic data using Sanity.io headless CMS
+- Form state handling with [formik](https://formik.org)
+- Form validation with [yup validation](https://github.com/jquense/yup)
+- Contact form powered by [email js](https://www.emailjs.com/)
+- Simple fluid animations with [framer motion](https://www.framer.com/motion/) animation library
+- Lovely animated icons from [Lottie Animations](https://lottiefiles.com/)
+- [Redux](https://redux-toolkit.js.org/) state management for global state management
+- Dynamic backend data using [sanity.io](https://www.sanity.io/) headless CMS
+- Some mild humour from the great CHUCK NORRIS [Chuck Norris API](https://api.chucknorris.io/)
 
 ## Tech Stack
 
-**Client:** <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
-<img alt="HTML" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
-</a>
-<a href="https://www.w3schools.com/css/">
-<img alt="CSS" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
-</a>
-<a href="https://www.javascript.com/" target="_blank" >
-<img alt="Javascript" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1" />
-</a>
-<a href="https://react-bootstrap.github.io/" target="_blank">
-<img alt="bootstrap" src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" />
-</a>
-<a href="https://reactjs.org/" target="_blank">
-<img alt="react" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
-</a>
-<a href="https://redux-toolkit.js.org/" target="_blank">
-<img alt="redux" src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white"/>
-</a>
+**Client:**
 
-**Server:** Sanity.io,Chuck Norris API
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![Framer](https://img.shields.io/badge/Framer-black?style=for-the-badge&logo=framer&logoColor=blue) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
-## Acknowledgements
-
-- [React docs](https://reactjs.org/)
-- [framer motion](https://www.framer.com/motion/)
-- [sanity.io](https://www.sanity.io/)
-- [Lottie Animations](https://lottiefiles.com/)
-- [readme.so](https://readme.so/)
+**Server:** [sanity.io](sanity.io)
 
 ## Appendix
 
-working with sanity.io was the best decision ever because i can add and delete projects from my portfolio without touching my source code, how cool is that! <img src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/smiling-face-with-sunglasses_1f60e.png" height="25" width="25">
+**Implementation summary:**
+
+- RTKQuery for accessing api layer with data caching
+- Each component is modularized
+
+```
+Component "folder level"
+│   Component.styles.ts
+│   Component.tsx
+│   index.tsx
+
+```
+
+- Sanity is an amazing headless CMS and i would encourage developers looking for something secure and robust and easy to set up to take advantage of its awesome features.

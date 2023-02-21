@@ -2,7 +2,7 @@ import { ISocialButtonData } from './types';
 
 const socialButtonData: ISocialButtonData[] = [
   {
-    link: 'linkedin.com/in/abba-adamu',
+    link: 'https://www.linkedin.com/in/abba-adamu',
     network: 'linkedin',
     id: 1,
   },
@@ -12,7 +12,7 @@ const socialButtonData: ISocialButtonData[] = [
     id: 2,
   },
   {
-    link: 'https://www.instagram.com/shy.x1028',
+    link: 'https://www.instagram.com/shytypes1028/',
     network: 'instagram',
     id: 3,
   },
