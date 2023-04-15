@@ -1,19 +1,19 @@
-import { motion } from 'framer-motion';
-import { useEffect } from 'react';
+import { motion } from "framer-motion";
+import { useEffect } from "react";
 // @ts-ignore
-import { Grid, Stack } from '@mui/material';
-import Heading from 'components/Heading';
-import Loading from 'components/Loading';
-import Paragraph from 'components/Paragraph';
-import Pill from 'components/Pill';
-import { loadProjectsData } from 'features/Redux/projectsDataSlice';
-import { useAppDispatch } from 'hooks/useAppDispatch';
+import { Grid, Stack } from "@mui/material";
+import Heading from "components/Heading";
+import Loading from "components/Loading";
+import Paragraph from "components/Paragraph";
+import Pill from "components/Pill";
+import { loadProjectsData } from "features/Redux/projectsDataSlice";
+import { useAppDispatch } from "hooks/useAppDispatch";
 //@ts-ignore
-import { AwesomeButton, AwesomeButtonSocial } from 'react-awesome-button';
-import 'react-awesome-button/dist/styles.css';
-import Tilt from 'react-parallax-tilt';
-import { useGetProjectsQuery } from 'services/endpoints/projects';
-import './ProjectList.css';
+import { AwesomeButton, AwesomeButtonSocial } from "react-awesome-button";
+import "react-awesome-button/dist/styles.css";
+import Tilt from "react-parallax-tilt";
+import { useGetProjectsQuery } from "services/endpoints/projects";
+import "./ProjectList.css";
 
 const ProjectList = () => {
   const dispatch = useAppDispatch();
@@ -24,7 +24,8 @@ const ProjectList = () => {
   }, [dispatch]);
 
   const handleOnLiveSamplePress = (someData: any) => {
-    window.open(someData.liveUrl, '_blank');
+    window.open(someData.liveUrl, "_blank");
+    console.log("live :", someData.liveUrl);
   };
 
   if (isFetching) {
@@ -34,7 +35,7 @@ const ProjectList = () => {
       <Stack
         alignSelf="center"
         sx={{
-          width: '90%',
+          width: "90%",
           marginTop: 4,
         }}
         spacing={5}
@@ -56,7 +57,7 @@ const ProjectList = () => {
                 whileHover={{ y: -5, scale: 1.1 }}
                 transition={{
                   duration: 0.5,
-                  type: 'spring',
+                  type: "spring",
                   stiffness: 150,
                   damping: 4,
                 }}
@@ -73,8 +74,8 @@ const ProjectList = () => {
                     src={eachProject.mainImage.asset.url}
                     alt={eachProject.title}
                     style={{
-                      width: '100%',
-                      height: 'auto',
+                      width: "100%",
+                      height: "auto",
                       borderRadius: 18,
                     }}
                   />
@@ -87,12 +88,12 @@ const ProjectList = () => {
                 alignItems="flex-start"
                 sx={{
                   paddingLeft: {
-                    xs: '8px',
-                    md: '0px',
+                    xs: "8px",
+                    md: "0px",
                   },
                   paddingRight: {
-                    xs: '5px',
-                    md: '0px',
+                    xs: "5px",
+                    md: "0px",
                   },
                 }}
                 direction="column"
@@ -100,7 +101,7 @@ const ProjectList = () => {
                 <Heading>0{index + 1}</Heading>
                 <Paragraph
                   sx={{
-                    fontSize: '1.8rem',
+                    fontSize: "1.8rem",
                   }}
                   className="text-has-shadow"
                 >
@@ -109,7 +110,7 @@ const ProjectList = () => {
                 <Paragraph
                   sx={{
                     textAlign: {
-                      xs: 'left',
+                      xs: "left",
                     },
                   }}
                 >
@@ -124,20 +125,21 @@ const ProjectList = () => {
                 <Stack
                   sx={{
                     flexDirection: {
-                      lg: 'row',
-                      md: 'row',
-                      sm: 'row',
-                      xs: 'column',
+                      lg: "row",
+                      md: "row",
+                      sm: "row",
+                      xs: "column",
                     },
-                    width: '100%',
+                    width: "100%",
                   }}
                 >
-                  {typeof eachProject.youTube === 'undefined' ? null : (
+                  {typeof eachProject.youTube === "undefined" ? null : (
                     <motion.div
                       whileHover={{ y: -5, scale: 1.1 }}
                       style={{
                         margin: 5,
                       }}
+                      onClick={() => window.open(eachProject.youTube, "_blank")}
                     >
                       {/* @ts-ignore */}
                       <AwesomeButtonSocial
@@ -145,21 +147,19 @@ const ProjectList = () => {
                         size="medium"
                         ripple
                         className="box-with-shadow"
-                        onPress={() => {
-                          window.open(eachProject.youTube, '_blank');
-                        }}
                       >
                         Youtube
                       </AwesomeButtonSocial>
                     </motion.div>
                   )}
 
-                  {typeof eachProject.gitUrl === 'undefined' ? null : (
+                  {typeof eachProject.gitUrl === "undefined" ? null : (
                     <motion.div
                       whileHover={{ y: -5, scale: 1.1 }}
                       style={{
                         margin: 5,
                       }}
+                      onClick={() => window.open(eachProject.gitUrl, "_blank")}
                     >
                       {/* @ts-ignore */}
                       <AwesomeButtonSocial
@@ -167,9 +167,6 @@ const ProjectList = () => {
                         size="medium"
                         ripple
                         className="box-with-shadow"
-                        onPress={() => {
-                          window.open(eachProject.gitUrl, '_blank');
-                        }}
                       >
                         GitHub
                       </AwesomeButtonSocial>
@@ -181,6 +178,7 @@ const ProjectList = () => {
                     style={{
                       margin: 5,
                     }}
+                    onClick={() => handleOnLiveSamplePress(eachProject)}
                   >
                     {/* @ts-ignore */}
                     <AwesomeButton
@@ -188,7 +186,6 @@ const ProjectList = () => {
                       size="medium"
                       ripple
                       className="box-with-shadow"
-                      onPress={() => handleOnLiveSamplePress(eachProject)}
                     >
                       Live
                     </AwesomeButton>
