@@ -4,7 +4,7 @@
   "homepage": "https://AdamuAbba.github.io/myPortfolio/",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.10.5",
+    "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.10.5",
     "@fontsource/quicksand": "^4.5.11",
     "@fontsource/roboto": "^4.5.8",
