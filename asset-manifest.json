@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/myPortfolio/static/css/main.f429d209.css",
+    "main.js": "/myPortfolio/static/js/main.a4dcb5d0.js",
+    "static/media/Portfolio-banner.png": "/myPortfolio/static/media/Portfolio-banner.a3f8001851488bc6f8bd.png",
+    "static/media/quicksand-all-500-normal.woff": "/myPortfolio/static/media/quicksand-all-500-normal.2d5758647fa98f7b15ee.woff",
+    "static/media/quicksand-all-400-normal.woff": "/myPortfolio/static/media/quicksand-all-400-normal.3991594f0487f37c86d5.woff",
+    "static/media/quicksand-all-700-normal.woff": "/myPortfolio/static/media/quicksand-all-700-normal.4ae9b08098baacb7ec48.woff",
+    "static/media/quicksand-all-300-normal.woff": "/myPortfolio/static/media/quicksand-all-300-normal.d8c3286217f3814a8855.woff",
+    "static/media/chucknorris_logo_coloured_small@2x.png": "/myPortfolio/static/media/chucknorris_logo_coloured_small@2x.8cef148e44782b060a5c.png",
+    "static/media/quicksand-latin-500-normal.woff2": "/myPortfolio/static/media/quicksand-latin-500-normal.2325761279c985580f3c.woff2",
+    "static/media/quicksand-latin-400-normal.woff2": "/myPortfolio/static/media/quicksand-latin-400-normal.cef2e5802d843cf31dba.woff2",
+    "static/media/quicksand-latin-700-normal.woff2": "/myPortfolio/static/media/quicksand-latin-700-normal.81492e5c850f70b1d3cc.woff2",
+    "static/media/quicksand-latin-300-normal.woff2": "/myPortfolio/static/media/quicksand-latin-300-normal.b6d21e21d1d8ea026e8c.woff2",
+    "static/media/quicksand-latin-ext-400-normal.woff2": "/myPortfolio/static/media/quicksand-latin-ext-400-normal.22fcff85fddc4c8cf3ff.woff2",
+    "static/media/quicksand-latin-ext-500-normal.woff2": "/myPortfolio/static/media/quicksand-latin-ext-500-normal.448146e05311569fa49e.woff2",
+    "static/media/quicksand-latin-ext-700-normal.woff2": "/myPortfolio/static/media/quicksand-latin-ext-700-normal.6e038627f5f3a83d3179.woff2",
+    "static/media/quicksand-latin-ext-300-normal.woff2": "/myPortfolio/static/media/quicksand-latin-ext-300-normal.6165f56fa41b120a12a4.woff2",
+    "static/media/quicksand-vietnamese-500-normal.woff2": "/myPortfolio/static/media/quicksand-vietnamese-500-normal.3f983d1270de6c1f44ec.woff2",
+    "static/media/quicksand-vietnamese-400-normal.woff2": "/myPortfolio/static/media/quicksand-vietnamese-400-normal.001708e70ef991eec89b.woff2",
+    "static/media/quicksand-vietnamese-300-normal.woff2": "/myPortfolio/static/media/quicksand-vietnamese-300-normal.8c97d2d477027fad9cd6.woff2",
+    "static/media/quicksand-vietnamese-700-normal.woff2": "/myPortfolio/static/media/quicksand-vietnamese-700-normal.f16da1766f969ce75e43.woff2",
+    "index.html": "/myPortfolio/index.html",
+    "main.f429d209.css.map": "/myPortfolio/static/css/main.f429d209.css.map",
+    "main.a4dcb5d0.js.map": "/myPortfolio/static/js/main.a4dcb5d0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f429d209.css",
+    "static/js/main.a4dcb5d0.js"
+  ]
+}
